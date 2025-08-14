@@ -11,13 +11,13 @@ npm install
 NOS SEGUINTES DIRETORIOS A PARTIR DO DIRETORIO RAIZ
 
 ->
-        cd ./books_react
+        cd ./pasta_destino_front
 
         npm install
 
         cd ..
 
-        cd ./books_server
+        cd ./pasta_destino_server
 
         npm install
 
@@ -29,15 +29,11 @@ NOS SEGUINTES DIRETORIOS A PARTIR DO DIRETORIO RAIZ
 
 
 
+-> app.js"
 
+-> node app.js
 
-
-
-"# books_react" 
-
-"books_server -> app.js"
-
-Abrir o diretorio books_server e pelo terminal iniciar o arquivo index.js 
+Abrir o diretorio _server e pelo terminal iniciar o arquivo index.js 
 com o comando
 
         -> node app.js
