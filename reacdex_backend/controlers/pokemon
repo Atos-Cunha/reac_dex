@@ -1,0 +1,90 @@
+const { get_all_itens, get_single_item, insert_item, modify_item, delete_item } = require("../services/pokemon");
+
+function get_all(req, res) {
+    try {
+        const itens = get_all_itens();
+        res.send(itens);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message)
+    }
+}
+
+function get_single(req, res) {
+    try {
+        const id = req.params.id;
+
+        if (id && Number(id)) {
+            const item = get_single_item(id);
+            res.send(item);
+        } else {
+            res.status(422);
+            res.send("ID invalido");
+        }
+    } catch (error) {
+        res.status(500);
+        res.send(error.message)
+    }
+}
+
+function post_single(req, res) {
+    try {
+        const new_item = req.body;
+
+        if (req.body.nome) {
+            insert_item(new_item);
+            res.status(201);
+            res.send("Item inserido com sucesso");
+        } else {
+            res.status(422);
+            res.send("O campo nome é obrigatório");
+        }
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
+function patch_single(req, res) {
+    try {
+        const id = req.params.id;
+
+        if (id && Number(id)) {
+            const body = req.body;
+
+            modify_item(body, id);
+            res.send("Item modificado com sucesso");
+        } else {
+            res.status(422);
+            res.send("ID invalido");
+        }
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
+function delete_single(req, res) {
+    try {
+        const id = req.params.id;
+
+        if (id && Number(id)) {
+            delete_item(id);
+            res.send("Item deletado com sucesso");
+        } else {
+            res.status(422);
+            res.send("ID invalido");
+        }
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
+module.exports = {
+    get_all,
+    get_single,
+    post_single,
+    patch_single,
+    delete_single
+}

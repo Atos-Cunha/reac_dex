@@ -1,0 +1,13 @@
+const { Router } = require("express");
+
+const { get_favs, post_fav, delete_fav } = require("../controlers/fav.js");
+
+const router = Router();
+
+router.get('/', get_favs);
+
+router.post('/:id', post_fav);
+
+router.delete('/:id', delete_fav);
+
+module.exports = router;
