@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import perfil from '../../img/perfil.svg';
-import light_theme from '../../img/light_theme.svg';
+import perfil from '../../img/public/perfil.svg';
+import light_theme from '../../img/public/light_theme.svg';
 
 const Icone = styled.li`
     margin-right: 40px;
