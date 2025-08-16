@@ -3,8 +3,8 @@
         "id": "001",
         "name": "bulbasaur",
         "type": [
-            "planta",
-            "venenoso"
+            "grass",
+            "poison"
         ],
         "evolves": true
     },
@@ -12,8 +12,8 @@
         "id": "002",
         "name": "ivysaur",
         "type": [
-            "planta",
-            "venenoso"
+            "grass",
+            "poison"
         ],
         "evolves": true
     },
@@ -21,8 +21,8 @@
         "id": "003",
         "name": "venusaur",
         "type": [
-            "planta",
-            "venenoso"
+            "grass",
+            "poison"
         ],
         "evolves": false
     },
@@ -30,7 +30,7 @@
         "id": "004",
         "name": "charmander",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": true
     },
@@ -38,7 +38,7 @@
         "id": "005",
         "name": "charmeleon",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": true
     },
@@ -46,8 +46,8 @@
         "id": "006",
         "name": "charizard",
         "type": [
-            "fogo",
-            "voador"
+            "fire",
+            "fly"
         ],
         "evolves": false
     },
@@ -55,7 +55,7 @@
         "id": "007",
         "name": "squirtle",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -63,7 +63,7 @@
         "id": "008",
         "name": "wartortle",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -71,7 +71,7 @@
         "id": "009",
         "name": "blastoise",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": false
     },
@@ -79,7 +79,7 @@
         "id": "010",
         "name": "caterpie",
         "type": [
-            "inseto"
+            "bug"
         ],
         "evolves": true
     },
@@ -87,7 +87,7 @@
         "id": "011",
         "name": "metapod",
         "type": [
-            "inseto"
+            "bug"
         ],
         "evolves": true
     },
@@ -95,8 +95,8 @@
         "id": "012",
         "name": "butterfree",
         "type": [
-            "inseto",
-            "voador"
+            "bug",
+            "fly"
         ],
         "evolves": false
     },
@@ -104,8 +104,8 @@
         "id": "013",
         "name": "weedle",
         "type": [
-            "inseto",
-            "veneno"
+            "bug",
+            "poison"
         ],
         "evolves": true
     },
@@ -113,8 +113,8 @@
         "id": "014",
         "name": "kakuna",
         "type": [
-            "inseto",
-            "veneno"
+            "bug",
+            "poison"
         ],
         "evolves": true
     },
@@ -122,8 +122,8 @@
         "id": "015",
         "name": "beedrill",
         "type": [
-            "inseto",
-            "veneno"
+            "bug",
+            "poison"
         ],
         "evolves": false
     },
@@ -132,7 +132,7 @@
         "name": "pidgey",
         "type": [
             "normal",
-            "voador"
+            "fly"
         ],
         "evolves": true
     },
@@ -141,7 +141,7 @@
         "name": "pidgeotto",
         "type": [
             "normal",
-            "voador"
+            "fly"
         ],
         "evolves": true
     },
@@ -150,7 +150,7 @@
         "name": "pidgeot",
         "type": [
             "normal",
-            "voador"
+            "fly"
         ],
         "evolves": false
     },
@@ -175,7 +175,7 @@
         "name": "spearow",
         "type": [
             "normal",
-            "voador"
+            "fly"
         ],
         "evolves": true
     },
@@ -184,7 +184,7 @@
         "name": "fearow",
         "type": [
             "normal",
-            "voador"
+            "fly"
         ],
         "evolves": false
     },
@@ -192,7 +192,7 @@
         "id": "023",
         "name": "ekans",
         "type": [
-            "veneno"
+            "poison"
         ],
         "evolves": true
     },
@@ -200,7 +200,7 @@
         "id": "024",
         "name": "arbok",
         "type": [
-            "veneno"
+            "poison"
         ],
         "evolves": false
     },
@@ -208,7 +208,7 @@
         "id": "025",
         "name": "pikachu",
         "type": [
-            "eletrico"
+            "eletric"
         ],
         "evolves": true
     },
@@ -216,7 +216,7 @@
         "id": "026",
         "name": "raichu",
         "type": [
-            "eletrico"
+            "eletric"
         ],
         "evolves": false
     },
@@ -224,7 +224,7 @@
         "id": "027",
         "name": "sandshrew",
         "type": [
-            "terra"
+            "ground"
         ],
         "evolves": true
     },
@@ -232,7 +232,7 @@
         "id": "028",
         "name": "sandslash",
         "type": [
-            "terra"
+            "ground"
         ],
         "evolves": false
     },
@@ -240,7 +240,7 @@
         "id": "029",
         "name": "nidoran♀",
         "type": [
-            "veneno"
+            "poison"
         ],
         "evolves": true
     },
@@ -248,7 +248,7 @@
         "id": "030",
         "name": "nidorina",
         "type": [
-            "veneno"
+            "poison"
         ],
         "evolves": true
     },
@@ -256,8 +256,8 @@
         "id": "031",
         "name": "nidoqueen",
         "type": [
-            "veneno",
-            "terra"
+            "poison",
+            "ground"
         ],
         "evolves": false
     },
@@ -265,7 +265,7 @@
         "id": "032",
         "name": "nidoran♂",
         "type": [
-            "veneno"
+            "poison"
         ],
         "evolves": true
     },
@@ -273,7 +273,7 @@
         "id": "033",
         "name": "nidorino",
         "type": [
-            "veneno"
+            "poison"
         ],
         "evolves": true
     },
@@ -281,8 +281,8 @@
         "id": "034",
         "name": "nidoking",
         "type": [
-            "veneno",
-            "terra"
+            "poison",
+            "ground"
         ],
         "evolves": false
     },
@@ -290,7 +290,7 @@
         "id": "035",
         "name": "clefairy",
         "type": [
-            "fada"
+            "fairy"
         ],
         "evolves": true
     },
@@ -298,7 +298,7 @@
         "id": "036",
         "name": "clefable",
         "type": [
-            "fada"
+            "fairy"
         ],
         "evolves": false
     },
@@ -306,7 +306,7 @@
         "id": "037",
         "name": "vulpix",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": true
     },
@@ -314,7 +314,7 @@
         "id": "038",
         "name": "ninetales",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": false
     },
@@ -323,7 +323,7 @@
         "name": "jigglypuff",
         "type": [
             "normal",
-            "fada"
+            "fairy"
         ],
         "evolves": true
     },
@@ -332,7 +332,7 @@
         "name": "wigglytuff",
         "type": [
             "normal",
-            "fada"
+            "fairy"
         ],
         "evolves": false
     },
@@ -340,8 +340,8 @@
         "id": "041",
         "name": "zubat",
         "type": [
-            "veneno",
-            "voador"
+            "poison",
+            "fly"
         ],
         "evolves": true
     },
@@ -349,8 +349,8 @@
         "id": "042",
         "name": "golbat",
         "type": [
-            "veneno",
-            "voador"
+            "poison",
+            "fly"
         ],
         "evolves": false
     },
@@ -358,8 +358,8 @@
         "id": "043",
         "name": "oddish",
         "type": [
-            "planta",
-            "veneno"
+            "grass",
+            "poison"
         ],
         "evolves": true
     },
@@ -367,8 +367,8 @@
         "id": "044",
         "name": "gloom",
         "type": [
-            "planta",
-            "veneno"
+            "grass",
+            "poison"
         ],
         "evolves": true
     },
@@ -376,8 +376,8 @@
         "id": "045",
         "name": "vileplume",
         "type": [
-            "planta",
-            "veneno"
+            "grass",
+            "poison"
         ],
         "evolves": false
     },
@@ -385,8 +385,8 @@
         "id": "046",
         "name": "paras",
         "type": [
-            "inseto",
-            "veneno"
+            "bug",
+            "poison"
         ],
         "evolves": true
     },
@@ -394,8 +394,8 @@
         "id": "047",
         "name": "parasect",
         "type": [
-            "planta",
-            "veneno"
+            "grass",
+            "poison"
         ],
         "evolves": false
     },
@@ -403,8 +403,8 @@
         "id": "048",
         "name": "venonat",
         "type": [
-            "inseto",
-            "veneno"
+            "bug",
+            "poison"
         ],
         "evolves": true
     },
@@ -412,8 +412,8 @@
         "id": "049",
         "name": "venomoth",
         "type": [
-            "inseto",
-            "veneno"
+            "bug",
+            "poison"
         ],
         "evolves": false
     },
@@ -421,7 +421,7 @@
         "id": "050",
         "name": "diglett",
         "type": [
-            "terra"
+            "ground"
         ],
         "evolves": true
     },
@@ -429,7 +429,7 @@
         "id": "051",
         "name": "dugtrio",
         "type": [
-            "terra"
+            "ground"
         ],
         "evolves": false
     },
@@ -453,7 +453,7 @@
         "id": "054",
         "name": "psyduck",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -461,7 +461,7 @@
         "id": "055",
         "name": "golduck",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": false
     },
@@ -469,7 +469,7 @@
         "id": "056",
         "name": "mankey",
         "type": [
-            "lutador"
+            "fighting"
         ],
         "evolves": true
     },
@@ -477,7 +477,7 @@
         "id": "057",
         "name": "primeape",
         "type": [
-            "lutador"
+            "fighting"
         ],
         "evolves": false
     },
@@ -485,7 +485,7 @@
         "id": "058",
         "name": "growlithe",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": true
     },
@@ -493,7 +493,7 @@
         "id": "059",
         "name": "arcanine",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": false
     },
@@ -501,7 +501,7 @@
         "id": "060",
         "name": "poliwag",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -509,7 +509,7 @@
         "id": "061",
         "name": "poliwhirl",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -517,8 +517,8 @@
         "id": "062",
         "name": "poliwrath",
         "type": [
-            "agua",
-            "lutador"
+            "water",
+            "fighting"
         ],
         "evolves": false
     },
@@ -526,8 +526,8 @@
         "id": "063",
         "name": "abra",
         "type": [
-            "agua",
-            "lutador"
+            "water",
+            "fighting"
         ],
         "evolves": false
     },
@@ -535,7 +535,7 @@
         "id": "064",
         "name": "kadabra",
         "type": [
-            "lutador"
+            "fighting"
         ],
         "evolves": true
     },
@@ -543,7 +543,7 @@
         "id": "065",
         "name": "alakazan",
         "type": [
-            "lutador"
+            "fighting"
         ],
         "evolves": true
     },
@@ -551,7 +551,7 @@
         "id": "066",
         "name": "machop",
         "type": [
-            "lutador"
+            "fighting"
         ],
         "evolves": false
     },
@@ -559,7 +559,7 @@
         "id": "067",
         "name": "machoke",
         "type": [
-            "lutador"
+            "fighting"
         ],
         "evolves": false
     },
@@ -567,7 +567,7 @@
         "id": "068",
         "name": "machamp",
         "type": [
-            "lutador"
+            "fighting"
         ],
         "evolves": false
     },
@@ -575,8 +575,8 @@
         "id": "069",
         "name": "bellsprout",
         "type": [
-            "planta",
-            "veneno"
+            "grass",
+            "poison"
         ],
         "evolves": true
     },
@@ -584,8 +584,8 @@
         "id": "070",
         "name": "weepinbell",
         "type": [
-            "planta",
-            "veneno"
+            "grass",
+            "poison"
         ],
         "evolves": true
     },
@@ -593,18 +593,18 @@
         "id": "071",
         "name": "victreebel",
         "type": [
-            "planta",
-            "veneno"
+            "grass",
+            "poison"
         ],
         "evolves": false
     },
     {
         "id": "072",
         "id": "000",
-        "name": "tentacool",
+        "name": "tentsteelol",
         "type": [
-            "agua",
-            "veneno"
+            "water",
+            "poison"
         ],
         "evolves": true
     },
@@ -612,8 +612,8 @@
         "id": "073",
         "name": "tentacruel",
         "type": [
-            "agua",
-            "veneno"
+            "water",
+            "poison"
         ],
         "evolves": false
     },
@@ -621,24 +621,24 @@
         "id": "074",
         "name": "geodude",
         "type": [
-            "rocha",
-            "terra"
+            "rock",
+            "ground"
         ]
     },
     {
         "id": "075",
         "name": "graveler",
         "type": [
-            "rocha",
-            "terra"
+            "rock",
+            "ground"
         ]
     },
     {
         "id": "076",
         "name": "golem",
         "type": [
-            "rocha",
-            "terra"
+            "rock",
+            "ground"
         ],
         "evolves": false
     },
@@ -646,7 +646,7 @@
         "id": "077",
         "name": "ponyta",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": true
     },
@@ -654,7 +654,7 @@
         "id": "078",
         "name": "rapidash",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": false
     },
@@ -662,8 +662,8 @@
         "id": "079",
         "name": "slowpoke",
         "type": [
-            "agua",
-            "psiquico"
+            "water",
+            "psychic"
         ],
         "evolves": true
     },
@@ -671,16 +671,16 @@
         "id": "080",
         "name": "slowbro",
         "type": [
-            "agua",
-            "psiquico"
+            "water",
+            "psychic"
         ]
     },
     {
         "id": "081",
         "name": "magnemite",
         "type": [
-            "eletrico",
-            "aco"
+            "eletric",
+            "steel"
         ],
         "evolves": true
     },
@@ -688,8 +688,8 @@
         "id": "082",
         "name": "magneton",
         "type": [
-            "eletrico",
-            "aco"
+            "eletric",
+            "steel"
         ],
         "evolves": false
     },
@@ -698,7 +698,7 @@
         "name": "farfetch'd",
         "type": [
             "normal",
-            "voador"
+            "fly"
         ],
         "evolves": false
     },
@@ -707,7 +707,7 @@
         "name": "doduo",
         "type": [
             "normal",
-            "voador"
+            "fly"
         ],
         "evolves": true
     },
@@ -716,7 +716,7 @@
         "name": "dodrio",
         "type": [
             "normal",
-            "voador"
+            "fly"
         ],
         "evolves": false
     },
@@ -724,7 +724,7 @@
         "id": "086",
         "name": "seel",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -732,8 +732,8 @@
         "id": "087",
         "name": "dewgong",
         "type": [
-            "agua",
-            "gelo"
+            "water",
+            "ice"
         ],
         "evolves": false
     },
@@ -741,7 +741,7 @@
         "id": "088",
         "name": "grimer",
         "type": [
-            "veneno"
+            "poison"
         ],
         "evolves": true
     },
@@ -749,7 +749,7 @@
         "id": "089",
         "name": "muk",
         "type": [
-            "veneno"
+            "poison"
         ],
         "evolves": false
     },
@@ -757,7 +757,7 @@
         "id": "0090",
         "name": "shellder",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -765,8 +765,8 @@
         "id": "091",
         "name": "cloyster",
         "type": [
-            "agua",
-            "gelo"
+            "water",
+            "ice"
         ],
         "evolves": false
     },
@@ -774,8 +774,8 @@
         "id": "092",
         "name": "gastly",
         "type": [
-            "fantasma",
-            "veneno"
+            "ghost",
+            "poison"
         ],
         "evolves": true
     },
@@ -783,8 +783,8 @@
         "id": "093",
         "name": "haunter",
         "type": [
-            "fantasma",
-            "veneno"
+            "ghost",
+            "poison"
         ],
         "evolves": true
     },
@@ -792,8 +792,8 @@
         "id": "094",
         "name": "gengar",
         "type": [
-            "fantasma",
-            "veneno"
+            "ghost",
+            "poison"
         ],
         "evolves": false
     },
@@ -801,8 +801,8 @@
         "id": "095",
         "name": "onix",
         "type": [
-            "rocha",
-            "terra"
+            "rock",
+            "ground"
         ],
         "evolves": true
     },
@@ -810,8 +810,8 @@
         "id": "096",
         "name": "steelix",
         "type": [
-            "rocha",
-            "aco"
+            "rock",
+            "steel"
         ],
         "evolves": false
     },
@@ -819,7 +819,7 @@
         "id": "097",
         "name": "drowzee",
         "type": [
-            "psiquico"
+            "psychic"
         ],
         "evolves": true
     },
@@ -827,7 +827,7 @@
         "id": "098",
         "name": "hypno",
         "type": [
-            "psiquico"
+            "psychic"
         ],
         "evolves": false
     },
@@ -835,7 +835,7 @@
         "id": "099",
         "name": "krabby",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -843,7 +843,7 @@
         "id": "100",
         "name": "voltorb",
         "type": [
-            "eletrico"
+            "eletric"
         ],
         "evolves": true
     },
@@ -851,7 +851,7 @@
         "id": "102",
         "name": "electrode",
         "type": [
-            "eletrico"
+            "eletric"
         ],
         "evolves": false
     },
@@ -859,8 +859,8 @@
         "id": "103",
         "name": "exeggcute",
         "type": [
-            "planta",
-            "psiquico"
+            "grass",
+            "psychic"
         ],
         "evolves": true
     },
@@ -868,7 +868,7 @@
         "id": "104",
         "name": "cubone",
         "type": [
-            "terra"
+            "ground"
         ],
         "evolves": true
     },
@@ -876,7 +876,7 @@
         "id": "105",
         "name": "marowak",
         "type": [
-            "terra"
+            "ground"
         ],
         "evolves": false
     },
@@ -884,7 +884,7 @@
         "id": "106",
         "name": "hitmonlee",
         "type": [
-            "lutador"
+            "fighting"
         ],
         "evolves": false
     },
@@ -892,7 +892,7 @@
         "id": "107",
         "name": "hitmonchan",
         "type": [
-            "lutador"
+            "fighting"
         ],
         "evolves": false
     },
@@ -908,7 +908,7 @@
         "id": "109",
         "name": "koffing",
         "type": [
-            "veneno"
+            "poison"
         ],
         "evolves": true
     },
@@ -923,8 +923,8 @@
         "id": "111",
         "name": "rhyhorn",
         "type": [
-            "terra",
-            "rocha"
+            "ground",
+            "rock"
         ],
         "evolves": true
     },
@@ -932,8 +932,8 @@
         "id": "112",
         "name": "rhydon",
         "type": [
-            "terra",
-            "rocha"
+            "ground",
+            "rock"
         ],
         "evolves": false
     },
@@ -948,7 +948,7 @@
         "id": "114",
         "name": "tangela",
         "type": [
-            "planta"
+            "grass"
         ],
         "evolves": true
     },
@@ -964,7 +964,7 @@
         "id": "116",
         "name": "horsea",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -972,7 +972,7 @@
         "id": "117",
         "name": "seadra",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": false
     },
@@ -980,7 +980,7 @@
         "id": "118",
         "name": "goldeen",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -988,7 +988,7 @@
         "id": "119",
         "name": "seaking",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": false
     },
@@ -996,7 +996,7 @@
         "id": "120",
         "name": "staryu",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -1004,7 +1004,7 @@
         "id": "121",
         "name": "starmie",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": false
     },
@@ -1012,8 +1012,8 @@
         "id": "122",
         "name": "mr. mime",
         "type": [
-            "psiquico",
-            "fada"
+            "psychic",
+            "fairy"
         ],
         "evolves": false
     },
@@ -1021,8 +1021,8 @@
         "id": "123",
         "name": "scyther",
         "type": [
-            "inseto",
-            "voador"
+            "bug",
+            "fly"
         ],
         "evolves": true
     },
@@ -1030,8 +1030,8 @@
         "id": "124",
         "name": "jynx",
         "type": [
-            "gelo",
-            "psiquico"
+            "ice",
+            "psychic"
         ],
         "evolves": false
     },
@@ -1039,7 +1039,7 @@
         "id": "125",
         "name": "electabuzz",
         "type": [
-            "eletrico"
+            "eletric"
         ],
         "evolves": true
     },
@@ -1047,7 +1047,7 @@
         "id": "126",
         "name": "magmar",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": true
     },
@@ -1055,7 +1055,7 @@
         "id": "127",
         "name": "pinsir",
         "type": [
-            "inseto"
+            "bug"
         ],
         "evolves": false
     },
@@ -1071,7 +1071,7 @@
         "id": "129",
         "name": "magikarp",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": true
     },
@@ -1079,8 +1079,8 @@
         "id": "130",
         "name": "gyarados",
         "type": [
-            "agua",
-            "dragao"
+            "water",
+            "dragon"
         ],
         "evolves": false
     },
@@ -1088,8 +1088,8 @@
         "id": "131",
         "name": "lapras",
         "type": [
-            "agua",
-            "gelo"
+            "water",
+            "ice"
         ],
         "evolves": false
     },
@@ -1113,7 +1113,7 @@
         "id": "134",
         "name": "vaporeon",
         "type": [
-            "agua"
+            "water"
         ],
         "evolves": false
     },
@@ -1121,7 +1121,7 @@
         "id": "135",
         "name": "jolteon",
         "type": [
-            "eletrico"
+            "eletric"
         ],
         "evolves": false
     },
@@ -1129,7 +1129,7 @@
         "id": "136",
         "name": "flareon",
         "type": [
-            "fogo"
+            "fire"
         ],
         "evolves": false
     },
@@ -1145,8 +1145,8 @@
         "id": "138",
         "name": "omanyte",
         "type": [
-            "rocha",
-            "agua"
+            "rock",
+            "water"
         ],
         "evolves": true
     },
@@ -1154,8 +1154,8 @@
         "id": "139",
         "name": "omastar",
         "type": [
-            "rocha",
-            "agua"
+            "rock",
+            "water"
         ],
         "evolves": false
     },
@@ -1163,8 +1163,8 @@
         "id": "140",
         "name": "kabuto",
         "type": [
-            "rocha",
-            "agua"
+            "rock",
+            "water"
         ],
         "evolves": true
     },
@@ -1172,8 +1172,8 @@
         "id": "141",
         "name": "kabutops",
         "type": [
-            "rocha",
-            "agua"
+            "rock",
+            "water"
         ],
         "evolves": false
     },
@@ -1182,8 +1182,8 @@
         "id": "142",
         "name": "aerodactyl",
         "type": [
-            "voador",
-            "rocha"
+            "fly",
+            "rock"
         ],
         "evolves": true
     },
@@ -1199,8 +1199,8 @@
         "id": "144",
         "name": "articuno",
         "type": [
-            "gelo",
-            "voador"
+            "ice",
+            "fly"
         ],
         "evolves": false
     },
@@ -1208,8 +1208,8 @@
         "id": "145",
         "name": "zapdos",
         "type": [
-            "eletrico",
-            "voador"
+            "eletric",
+            "fly"
         ],
         "evolves": false
     },
@@ -1217,8 +1217,8 @@
         "id": "146",
         "name": "moltres",
         "type": [
-            "fogo",
-            "voador"
+            "fire",
+            "fly"
         ],
         "evolves": false
     },
@@ -1226,7 +1226,7 @@
         "id": "147",
         "name": "dratini",
         "type": [
-            "dragao"
+            "dragon"
         ],
         "evolves": true
     },
@@ -1234,7 +1234,7 @@
         "id": "148",
         "name": "dragonair",
         "type": [
-            "dragao"
+            "dragon"
         ],
         "evolves": true
     },
@@ -1242,8 +1242,8 @@
         "id": "149",
         "name": "dragonite",
         "type": [
-            "dragao",
-            "voador"
+            "dragon",
+            "fly"
         ],
         "evolves": false
     },
@@ -1251,7 +1251,7 @@
         "id": "150",
         "name": "mewtwo",
         "type": [
-            "psiquico"
+            "psychic"
         ],
         "evolves": false
     },
@@ -1259,7 +1259,7 @@
         "id": "151",
         "name": "mew",
         "type": [
-            "psiquico"
+            "psychic"
         ],
         "evolves": false
     }

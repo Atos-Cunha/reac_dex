@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import logo from '../../img/logo.svg';
+import logo from '../../img/public/logo.svg';
 
 const LogoContainer = styled.div`
     color: #000;

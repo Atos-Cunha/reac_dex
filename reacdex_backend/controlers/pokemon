@@ -1,8 +1,18 @@
+const path = require("path");
+
 const { get_all_itens, get_single_item, insert_item, modify_item, delete_item } = require("../services/pokemon");
+
+function add_image_path(item) {
+    if (!item) return null;
+    return {
+        ...item,
+        imagem: `/img/${item.id || item.numero}.png`
+    };
+}
 
 function get_all(req, res) {
     try {
-        const itens = get_all_itens();
+        const itens = get_all_itens().map(add_image_path);
         res.send(itens);
     } catch (error) {
         res.status(500);
@@ -16,7 +26,7 @@ function get_single(req, res) {
 
         if (id && Number(id)) {
             const item = get_single_item(id);
-            res.send(item);
+            res.send(add_image_path(item));
         } else {
             res.status(422);
             res.send("ID invalido");
@@ -33,8 +43,10 @@ function post_single(req, res) {
 
         if (req.body.nome) {
             insert_item(new_item);
-            res.status(201);
-            res.send("Item inserido com sucesso");
+            res.status(201).send({
+                mensagem: "Item inserido com sucesso",
+                ...add_image_path(new_item)
+            });
         } else {
             res.status(422);
             res.send("O campo nome é obrigatório");
@@ -53,7 +65,10 @@ function patch_single(req, res) {
             const body = req.body;
 
             modify_item(body, id);
-            res.send("Item modificado com sucesso");
+            res.send({
+                mensagem: "Item modificado com sucesso",
+                ...add_image_path({ ...body, id })
+            });
         } else {
             res.status(422);
             res.send("ID invalido");
@@ -70,7 +85,10 @@ function delete_single(req, res) {
 
         if (id && Number(id)) {
             delete_item(id);
-            res.send("Item deletado com sucesso");
+            res.send({
+                mensagem: "Item deletado com sucesso",
+                imagem: `/img/${id}.png`
+            });
         } else {
             res.status(422);
             res.send("ID invalido");

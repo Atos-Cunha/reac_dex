@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { get_fav, post_fav, del_fav } from '../services/fav';
 import styled from 'styled-components';
-import img from '../img/livro.png';
+import img from '../img/public/livro.png';
 
 const AppContainer = styled.div`
     width: 100vw;
