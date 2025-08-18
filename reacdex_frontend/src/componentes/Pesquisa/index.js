@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { get_all_itens } from "../../services/home";
 import { post_fav } from "../../services/fav";
 
-const imagens = require.context('../../img', false, /\.(png|jpe?g|svg)$/);
+const imagens = require.context('../../img/pokemons', false, /\.(png|jpe?g|svg)$/);
 
 const PesquisaContainer = styled.section`
     background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);

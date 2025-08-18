@@ -1,16 +1,26 @@
+const path = require("path");
 const { Router } = require("express");
 const { get_all, get_single, post_single, patch_single, delete_single } = require("../controlers/pokemon");
 
 const router = Router();
 
+
+
+
+router.get('/:id/img', (req, res) => {
+    const id = req.params.id;
+    const imagePath = path.join(__dirname, "..", "img", `${id}.png`);
+    res.sendFile(imagePath, (err) => {
+        if (err) {
+            res.status(404).send("Imagem não encontrada");
+        }
+    });
+});
+
 router.get('/', get_all);
-
 router.get('/:id', get_single);
-
 router.post('/', post_single);
-
 router.patch('/:id', patch_single);
-
 router.delete('/:id', delete_single);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-import item from '../../img/logo.svg'
+import item from '../../img/pokemons'
 
 
 export const itens = [
