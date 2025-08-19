@@ -1,52 +1,22 @@
 import { useEffect, useState } from 'react';
-import styled from "styled-components";
-import { Titulo } from "../Titulo";
+import styled, { keyframes } from "styled-components";
 
 const Card = styled.div`
-    align-items: center;
+    height: auto;
+    margin: 0 auto; 
     background-color: #FFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     display: flex;
-    margin: 0 auto;
-    max-width: 600px;
-    padding: 25px 20px;
     justify-content: space-around;
-    width: 100%;  
+    align-items: center;
+    flex-wrap: wrap;
 `;
 
-const Botao = styled.button`
-    background-color: #EB9B00;
-    color: #FFF;
-    padding: 10px 0px;
-    font-size: 16px;
-    border: none;
-    font-weight: 900;
-    display: block;
-    text-align: center;
-    width: 150px;
-    &:hover {
-        cursor: pointer;
-    }
-`;
-
-const Descricao = styled.p`
-    max-width: 300px;
-`;
-
-const Subtitulo = styled.h4`
-    color: #002F52;
-    font-size: 18px;
-    font-weight: bold;
-    margin: 15px 0;
-`;
-
-// Renomeei para não conflitar com <img>
 const PokemonImage = styled.img`
     width: 150px;
 `;
 
-// Este é o que você queria usar no map:
 const PokemonCard = styled.div`
     display: flex;
     flex-direction: column;
@@ -58,10 +28,25 @@ const PokemonCard = styled.div`
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 `;
 
+/* animação do spinner */
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+const Spinner = styled.div`
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: ${spin} 1s linear infinite;
+  margin: 50px auto;
+`;
+
 function CardPokemons() {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchPokemons() {
@@ -71,7 +56,8 @@ function CardPokemons() {
                 const data = await response.json();
                 setPokemons(data);
             } catch (err) {
-                setError(err.message);
+                console.error("Falha no fetch:", err.message);
+                setPokemons([]); 
             } finally {
                 setLoading(false);
             }
@@ -79,26 +65,24 @@ function CardPokemons() {
         fetchPokemons();
     }, []);
 
-    if (loading) return <p>Carregando pokémons...</p>;
-    if (error) return <p>Erro: {error}</p>;
+    if (loading || pokemons.length === 0) {
+        return <Spinner />;
+    }
 
     return (
         <Card>
-            <Botao> 👌 </Botao>
-            
-            <Card>
-                {pokemons.map(pokemon => (
-                    <PokemonCard key={pokemon.id}>
-                        <PokemonImage
-                            src={pokemon.image || `http://localhost:8000/home/${pokemon.id}.png`}
-                            alt={pokemon.name}
-                        />
-                        <h3>{pokemon.name}</h3>
-                        <p>Tipo: {pokemon.type.join(", ")}</p>
-                        <p>{pokemon.evolves ? "Evolui" : "Não evolui"}</p>
-                    </PokemonCard>
-                ))}
-            </Card>
+            {pokemons.map(pokemon => (
+                <PokemonCard key={pokemon.id}>
+                    <h3 style={{ textTransform: "uppercase" }}>{pokemon.name}</h3>
+                    <p>#{pokemon.id}</p>
+                    <PokemonImage
+                        src={pokemon.image || `http://localhost:8000/home/${pokemon.id}/img`}
+                        alt={pokemon.name}
+                    />
+                    <p>Tipo: {pokemon.type.join(", ")}</p>
+                    <p>{pokemon.evolves ? "Evolui" : "Não evolui"}</p>
+                </PokemonCard>
+            ))}
         </Card>
     )
 }

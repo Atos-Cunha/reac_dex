@@ -10,9 +10,10 @@ const PesquisaContainer = styled.section`
     background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
     color: #FFF;
     text-align: center;
-    padding: 85px 0;
-    height: auto;
+    padding: 40px 0;
     width: 100%;
+    min-height: ${props => (props.vazio ? "200px" : "100%")}; /* <= altura mínima quando vazio */
+    transition: all 0.3s ease;
 `;
 
 const Titulo = styled.h2`
@@ -28,25 +29,40 @@ const Subtitulo = styled.h3`
     margin-bottom: 40px;
 `;
 
+const ResultadosGrid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* até 5 colunas */
+    max-width: 1000px;
+    margin: 20px auto;
+    gap: 20px;
+`;
+
 const Resultado = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
     cursor: pointer;
+    transition: 0.2s;
 
     p {
-        width: 200px;
+        margin-top: 8px;
+        font-size: 14px;
+        color: #fff;
     }
 
     img {
         width: 100px;
+        height: 100px;
+        object-fit: contain;
     }
     
     &:hover {
         border: 1px solid white;
+        transform: scale(1.05);
     }
 `;
+
 function getImagem(id) {
     try {
         return imagens(`./${id}.png`);
@@ -74,11 +90,9 @@ function Pesquisa() {
     }
 
     return (
-        <PesquisaContainer>
+        <PesquisaContainer vazio={researched_item.length === 0}>
             <Titulo>Pesquise por um pokemon</Titulo>
-            {/* <Subtitulo>Encontre seu pokemon aqui.</Subtitulo> */}
             <Input
-
                 placeholder="Pesquise por nome"
                 onBlur={evento => {
                     const textoDigitado = evento.target.value;
@@ -88,15 +102,19 @@ function Pesquisa() {
                     set_researched_item(resultadoPesquisa);
                 }}
             />
-            {researched_item.map(item => (
-                <Resultado
-                // key={item.id} onClick={() => insert_fav(item.id)} // adidiona aos favoritos ao clicar
-                >
-                    <img src={getImagem(item.id)} alt={item.name} />
-                    <p>{item.name}</p>
-                </Resultado>
-            ))}
+
+            {researched_item.length > 0 && (
+                <ResultadosGrid>
+                    {researched_item.map(item => (
+                        <Resultado key={item.id} onClick={() => insert_fav(item.id)}>
+                            <img src={getImagem(item.id)} alt={item.name} />
+                            <p>{item.name}</p>
+                        </Resultado>
+                    ))}
+                </ResultadosGrid>
+            )}
         </PesquisaContainer>
     );
 }
+
 export default Pesquisa;

@@ -19,7 +19,6 @@ function Home() {
     <AppContainer>
       <Pesquisa />
       <QuadroPrincipal />
-      <CardPokemons />
     </AppContainer>
   );
 }
