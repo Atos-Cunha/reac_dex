@@ -1,13 +1,9 @@
 const path = require("path");
 const { Router } = require("express");
-const { get_all, get_single, post_single, patch_single, delete_single } = require("../controlers/pokemon");
+const { get_single } = require("../controlers/pokemon");
 
 const router = Router();
 
-router.get('/', get_all);
 router.get('/:id', get_single);
-router.post('/', post_single);
-router.patch('/:id', patch_single);
-router.delete('/:id', delete_single);
 
 module.exports = router;
