@@ -600,7 +600,6 @@
     },
     {
         "id": "072",
-        "id": "000",
         "name": "tentsteelol",
         "type": [
             "water",
@@ -754,7 +753,7 @@
         "evolves": false
     },
     {
-        "id": "0090",
+        "id": "090",
         "name": "shellder",
         "type": [
             "water"

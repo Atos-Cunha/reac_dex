@@ -12,6 +12,8 @@ const PesquisaContainer = styled.section`
     text-align: center;
     padding: 40px 0;
     width: 100%;
+    height: 100%;
+    min-width: ${props => (props.vazio ? "200px" : "100%")}; /* <= altura mínima quando vazio */
     min-height: ${props => (props.vazio ? "200px" : "100%")}; /* <= altura mínima quando vazio */
     transition: all 0.3s ease;
 `;
