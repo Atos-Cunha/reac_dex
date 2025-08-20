@@ -1,24 +1,19 @@
-// import UltimosLancamentos from '../componentes/UltimosLancamentos';
-// import testeQuadro from '../componentes/testeQuadro';
-
-
 import styled from 'styled-components';
 import Pesquisa from '../componentes/Pesquisa';
-import QuadroPrincipal from '../componentes/QuadroPrincipal';
-import CardPokemons from '../componentes/CardPokemons';
+import FramePokeCards from '../componentes/FramePokeCards';
 
 const AppContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
+  width-max: 80%;
+  width-max: 100%;
 `
-
 
 function Home() {
   return (
     <AppContainer>
       <Pesquisa />
-      <QuadroPrincipal />
+      <FramePokeCards />
     </AppContainer>
   );
 }

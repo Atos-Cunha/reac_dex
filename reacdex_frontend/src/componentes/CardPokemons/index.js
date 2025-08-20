@@ -14,15 +14,33 @@ const Card = styled.div`
 `;
 
 const PokemonImage = styled.img`
-    width: 150px;
+    width: 200px;
+    heigth: 150px;
 `;
+
+const PokeName = styled.p`
+    font-size: 20px;                  /* tamanho da fonte */
+    font-family: 'Montserrat',        /* principal */
+             'Helvetica Neue',    /* alternativa moderna */
+             Arial,               /* fallback clássico */
+             sans-serif;          /* fallback genérico */
+    font-weight: 700;                 /* bold */
+    line-height: 1.5;                 /* altura da linha para melhor leitura */
+    letter-spacing: 0.5px;            /* espaçamento entre letras */
+    color: #333;                       /* cor mais suave que preto puro */
+`
+
+const PokeNumber = styled.p`
+    font-size: 20px;
+    font-family: Montserrat;
+`
 
 const PokemonCard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 12px;
-    margin: 10px;
+    padding: 15px;
+    margin: 5px;
     border-radius: 8px;
     background: #f5f5f5;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -57,7 +75,7 @@ function CardPokemons() {
                 setPokemons(data);
             } catch (err) {
                 console.error("Falha no fetch:", err.message);
-                setPokemons([]); 
+                setPokemons([]);
             } finally {
                 setLoading(false);
             }
@@ -73,8 +91,8 @@ function CardPokemons() {
         <Card>
             {pokemons.map(pokemon => (
                 <PokemonCard key={pokemon.id}>
-                    <h3 style={{ textTransform: "uppercase" }}>{pokemon.name}</h3>
-                    <p>#{pokemon.id}</p>
+                    <PokeName style={{ textTransform: "uppercase" }}>{pokemon.name}</PokeName>
+                    <PokeNumber>#{pokemon.id}</PokeNumber>
                     <PokemonImage
                         src={pokemon.image || `http://localhost:8000/home/${pokemon.id}/img`}
                         alt={pokemon.name}

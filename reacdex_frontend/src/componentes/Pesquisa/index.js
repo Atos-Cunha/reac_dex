@@ -7,15 +7,16 @@ import { post_fav } from "../../services/fav";
 const imagens = require.context('../../img/pokemons', false, /\.(png|jpe?g|svg)$/);
 
 const PesquisaContainer = styled.section`
-    background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
-    color: #FFF;
-    text-align: center;
-    padding: 40px 0;
-    width: 100%;
-    height: 100%;
-    min-width: ${props => (props.vazio ? "200px" : "100%")}; /* <= altura mínima quando vazio */
-    min-height: ${props => (props.vazio ? "200px" : "100%")}; /* <= altura mínima quando vazio */
-    transition: all 0.3s ease;
+background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
+color: #FFF;
+text-align: center;
+padding: 40px 0;
+width: 80%;
+margin: auto;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+// box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.8);
+transition: all 0.3s ease;
+
 `;
 
 const Titulo = styled.h2`
@@ -34,6 +35,7 @@ const Subtitulo = styled.h3`
 const ResultadosGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* até 5 colunas */
+    
     max-width: 1000px;
     margin: 20px auto;
     gap: 20px;
@@ -47,6 +49,7 @@ const Resultado = styled.div`
     cursor: pointer;
     transition: 0.2s;
 
+    
     p {
         margin-top: 8px;
         font-size: 14px;

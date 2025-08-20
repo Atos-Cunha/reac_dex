@@ -10,7 +10,7 @@ const Icone = styled.li`
 
 const Icones = styled.ul`
     display: flex;
-    align-items: center;
+    align-items: top;
 `
 
 const icones = [perfil, light_theme];
