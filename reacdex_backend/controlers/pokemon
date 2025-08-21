@@ -1,16 +1,15 @@
-// root/controlers/pokemon.js
 const { get_all_itens, get_single_item, insert_item, modify_item, delete_item } = require("../services/pokemon");
 
-// Adiciona o caminho da imagem ao objeto
+const path = require("path");
+
 function add_image_path(item) {
     if (!item) return null;
     return {
         ...item,
-        imagem: `/home/${item.id}/img` // link para a rota que serve a imagem
+        imagem: `/home/${item.id}/img_pokemon`
     };
 }
 
-// Retorna todos os itens
 function get_all(req, res) {
     try {
         const itens = get_all_itens().map(add_image_path);
@@ -20,7 +19,6 @@ function get_all(req, res) {
     }
 }
 
-// Retorna um item específico em JSON
 function get_single(req, res) {
     try {
         const id = req.params.id;
@@ -36,7 +34,6 @@ function get_single(req, res) {
     }
 }
 
-// Cria um novo item
 function post_single(req, res) {
     try {
         const new_item = req.body;
@@ -52,7 +49,6 @@ function post_single(req, res) {
     }
 }
 
-// Modifica um item existente
 function patch_single(req, res) {
     try {
         const id = req.params.id;
@@ -68,7 +64,6 @@ function patch_single(req, res) {
     }
 }
 
-// Deleta um item
 function delete_single(req, res) {
     try {
         const id = req.params.id;

@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 function get_all_itens() {
     return JSON.parse(fs.readFileSync("db_pokemon.json"));

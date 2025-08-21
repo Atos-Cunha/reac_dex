@@ -4,18 +4,16 @@ const { get_all, get_single, post_single, patch_single, delete_single } = requir
 
 const router = Router();
 
-
-
-
 router.get('/:id/img', (req, res) => {
     const id = req.params.id;
-    const imagePath = path.join(__dirname, "..", "img", `${id}.png`);
+    const imagePath = path.join(__dirname, "..", "img", "/", "img_pokemons", `${id}.png`);
     res.sendFile(imagePath, (err) => {
         if (err) {
             res.status(404).send("Imagem não encontrada");
         }
     });
 });
+
 
 router.get('/', get_all);
 router.get('/:id', get_single);

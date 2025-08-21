@@ -4,7 +4,24 @@ import { useEffect, useState } from 'react';
 import { get_all_itens } from "../../services/home";
 import { post_fav } from "../../services/fav";
 
-const imagens = require.context('../../img/pokemons', false, /\.(png|jpe?g|svg)$/);
+const imagens_pokemons = require.context('../../img/img_pokemons', false, /\.(png|jpe?g|svg)$/);
+const imagens_types = require.context('../../img/img_pokemons', false, /\.(png|jpe?g|svg)$/);
+
+function getImagemPokemon(id) {
+    try {
+        return imagens_pokemons(`./${id}.png`);
+    } catch {
+        return null;
+    }
+}
+
+function getImagemPokemon(id) {
+    try {
+        return imagens_types(`./${id}.png`);
+    } catch {
+        return null;
+    }
+}
 
 const PesquisaContainer = styled.section`
 background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
@@ -68,14 +85,6 @@ const Resultado = styled.div`
     }
 `;
 
-function getImagem(id) {
-    try {
-        return imagens(`./${id}.png`);
-    } catch {
-        return null;
-    }
-}
-
 function Pesquisa() {
     const [researched_item, set_researched_item] = useState([]);
     const [itens, set_itens] = useState([]);
@@ -112,8 +121,7 @@ function Pesquisa() {
                 <ResultadosGrid>
                     {researched_item.map(item => (
                         <Resultado key={item.id} onClick={() => insert_fav(item.id)}>
-                            <img src={getImagem(item.id)} alt={item.name} />
-                            <p>{item.name}</p>
+                            <img src={getImagemPokemon(item.id)} alt={item.name} />                            <p>{item.name}</p>
                         </Resultado>
                     ))}
                 </ResultadosGrid>
