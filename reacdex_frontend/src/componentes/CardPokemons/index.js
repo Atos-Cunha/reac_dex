@@ -19,15 +19,15 @@ const PokemonImage = styled.img`
 `;
 
 const PokeName = styled.p`
-    font-size: 20px;                  /* tamanho da fonte */
-    font-family: 'Montserrat',        /* principal */
+    font-size: 20px;              /* tamanho da fonte */
+    font-family: 'Montserrat',    /* principal */
              'Helvetica Neue',    /* alternativa moderna */
              Arial,               /* fallback clássico */
              sans-serif;          /* fallback genérico */
-    font-weight: 700;                 /* bold */
-    line-height: 1.5;                 /* altura da linha para melhor leitura */
-    letter-spacing: 0.5px;            /* espaçamento entre letras */
-    color: #333;                       /* cor mais suave que preto puro */
+    font-weight: 700;             /* bold */
+    line-height: 1.5;             /* altura da linha para melhor leitura */
+    letter-spacing: 0.5px;        /* espaçamento entre letras */
+    color: #333;                /* cor mais suave que preto puro */
 `
 
 const PokeNumber = styled.p`
