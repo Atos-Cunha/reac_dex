@@ -1,41 +1,47 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { itens } from './dados_pokemon';
 import { Titulo } from '../Titulo';
-import CardRecomenda from '../CardRecomenda';
-// import imagemLivro from '../../img/livro2.png';
+import CardPokemons from '../CardPokemons';
 
 const QuadroPrincipalContainer = styled.section`
+    max-width: 80%;
+    margin: 0 auto; 
     background-color: #EBECEE;
     padding-bottom: 20px;
     display: flex;
     flex-direction: column;
-`
-// QuadroPrincipalContiner
-const  container_new_itens = styled.div`
-    margin-top: 30px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    cursor: pointer;
-`
+    margin-left: 20%;
+    margin-right: 20%;
+`;
 
 function QuadroPrincipal() {
+    const [pokemons, setPokemons] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        async function fetchPokemons() {
+            try {
+                const response = await fetch("http://localhost:3001/pokemons");
+                if (!response.ok) throw new Error("Erro ao buscar pokemons");
+                const data = await response.json();
+                setPokemons(data);
+            } catch (err) {
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchPokemons();
+    }, []);
+
     return (
         <QuadroPrincipalContainer>
-            <Titulo or={"#EB9B00"} tamanhoFonte={"36px"}>1º GEN</Titulo>
-            <container_new_itens>
-                {itens.map(item => (
-                    <img src={item.src} alt='img' />
-                ))}
-            </container_new_itens>
-            {/* <CardRecomenda
-                titulo="Teste"
-                subtitulo="Teste"
-                descricao="teste teste teste ..."
-                img={imagemLivro}
-            /> */}
+            <Titulo>First gen</Titulo>
+            <CardPokemons />
         </QuadroPrincipalContainer>
-    )
+
+    );
 }
 
 export default QuadroPrincipal;

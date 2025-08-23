@@ -1,13 +1,13 @@
 <!-- theme-toggle.svg -->
-<svg id="themeToggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" role="button" tabindex="0" aria-pressed="false" aria-labelledby="ttitle" style="cursor:pointer;user-select:none">
+<svg id="themeToggle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" role="button" tabindex="0" aria-pressed="false" aria-labelledby="ttitle" style="cursor:pointer;user-select:none">
   <title id="ttitle">Mudar tema: claro</title>
 
   <defs>
     <style>
       /* cores padrão (pode trocar) */
-      .sun { fill: #fbbf24; stroke: #f59e0b; stroke-width: 1; }
-      .ray { stroke: #f59e0b; stroke-width: 1.5; stroke-linecap: round; }
-      .moon { fill: #9ca3af; }
+      .sun { fill: #000; stroke: #000; stroke-width: 1; }
+      .ray { stroke: #000; stroke-width: 1.5; stroke-linecap: round; }
+      .moon { fill: #000; }
       .hidden { opacity: 0; pointer-events: none; }
       .shown { opacity: 1; }
       /* transições suaves */

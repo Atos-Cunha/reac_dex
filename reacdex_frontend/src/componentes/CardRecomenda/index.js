@@ -40,11 +40,11 @@ const Subtitulo = styled.h4`
     margin: 15px 0;
 `
 
-const ImgLivro = styled.img`
+const ImgPokemon = styled.img`
     width: 150px;
 `
 
-function CardRecomenda({ titulo, subtitulo, descricao, img }) {
+function CardPokemon({ titulo, subtitulo, descricao, img }) {
     return (
         <Card>
             <div>
@@ -53,11 +53,11 @@ function CardRecomenda({ titulo, subtitulo, descricao, img }) {
                 <Descricao>{descricao}</Descricao>
             </div>
             <div>
-                <ImgLivro src={img} />
+                <ImgPokemon src={img} />
                 <Botao>Saiba mais</Botao>
             </div>
         </Card>
     )
 }
 
-export default CardRecomenda;
+export default CardPokemon;

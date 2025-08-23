@@ -1,0 +1,27 @@
+const fs = require("fs");
+const path = require("path");
+
+const imgFolder = path.join(__dirname, "..", "img", "/", "img_types");
+
+function getAllTypes() {
+    try {
+        return fs.readdirSync(imgFolder)
+            .filter(file => /\.(png|jpg|jpeg|gif)$/i.test(file)) 
+            .map(file => ({
+                name: path.parse(file).name,
+                url: `/type/${file}`
+            }));
+    } catch (error) {
+        throw new Error("Erro ao ler a pasta de imagens");
+    }
+}
+
+function getTypeImage(fileName) {
+    const filePath = path.join(imgFolder, fileName);
+    if (fs.existsSync(filePath)) {
+        return filePath;
+    }
+    return null;
+}
+
+module.exports = { getAllTypes, getTypeImage };

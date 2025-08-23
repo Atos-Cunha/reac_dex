@@ -18,7 +18,7 @@ const Opcoes = styled.ul`
     display: flex;
 `;
 
-const opcoes = ['HOME', 'FAVORITES', 'UPDATES'];
+const opcoes = ['HOME', 'FAVORITES', 'TYPES'];
 
 function opcoes_header() {
     return (
