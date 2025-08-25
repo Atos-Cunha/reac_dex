@@ -1,0 +1,9 @@
+const path = require("path");
+const { Router } = require("express");
+const { get_all_evolves, get_single_evolve } = require("../controlers/evolveController.js");
+const router = Router();
+
+router.get('/', get_all_evolves);
+router.get('/:id', get_single_evolve);
+
+module.exports = router;

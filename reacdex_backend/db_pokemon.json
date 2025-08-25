@@ -47,7 +47,7 @@
         "name": "charizard",
         "type": [
             "fire",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -96,7 +96,7 @@
         "name": "butterfree",
         "type": [
             "bug",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -132,7 +132,7 @@
         "name": "pidgey",
         "type": [
             "normal",
-            "fly"
+            "flying"
         ],
         "evolves": true
     },
@@ -141,7 +141,7 @@
         "name": "pidgeotto",
         "type": [
             "normal",
-            "fly"
+            "flying"
         ],
         "evolves": true
     },
@@ -150,7 +150,7 @@
         "name": "pidgeot",
         "type": [
             "normal",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -175,7 +175,7 @@
         "name": "spearow",
         "type": [
             "normal",
-            "fly"
+            "flying"
         ],
         "evolves": true
     },
@@ -184,7 +184,7 @@
         "name": "fearow",
         "type": [
             "normal",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -341,7 +341,7 @@
         "name": "zubat",
         "type": [
             "poison",
-            "fly"
+            "flying"
         ],
         "evolves": true
     },
@@ -350,7 +350,7 @@
         "name": "golbat",
         "type": [
             "poison",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -527,7 +527,7 @@
         "name": "abra",
         "type": [
             "water",
-            "fighting"
+            "psychic"
         ],
         "evolves": false
     },
@@ -535,7 +535,7 @@
         "id": "064",
         "name": "kadabra",
         "type": [
-            "fighting"
+            "psychic"
         ],
         "evolves": true
     },
@@ -543,7 +543,7 @@
         "id": "065",
         "name": "alakazan",
         "type": [
-            "fighting"
+            "psychic"
         ],
         "evolves": true
     },
@@ -697,7 +697,7 @@
         "name": "farfetch'd",
         "type": [
             "normal",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -706,7 +706,7 @@
         "name": "doduo",
         "type": [
             "normal",
-            "fly"
+            "flying"
         ],
         "evolves": true
     },
@@ -715,7 +715,7 @@
         "name": "dodrio",
         "type": [
             "normal",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -1021,7 +1021,7 @@
         "name": "scyther",
         "type": [
             "bug",
-            "fly"
+            "flying"
         ],
         "evolves": true
     },
@@ -1181,7 +1181,7 @@
         "id": "142",
         "name": "aerodactyl",
         "type": [
-            "fly",
+            "flying",
             "rock"
         ],
         "evolves": true
@@ -1199,7 +1199,7 @@
         "name": "articuno",
         "type": [
             "ice",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -1208,7 +1208,7 @@
         "name": "zapdos",
         "type": [
             "eletric",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -1217,7 +1217,7 @@
         "name": "moltres",
         "type": [
             "fire",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
@@ -1242,7 +1242,7 @@
         "name": "dragonite",
         "type": [
             "dragon",
-            "fly"
+            "flying"
         ],
         "evolves": false
     },
