@@ -23,6 +23,19 @@ const PokemonCard = styled.div`
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 `;
 
+const PokemonEvoGrid = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  background: #0000008a;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  gap: 15px;
+`;
+
 const PokeNumber = styled.p`
   font-size: 20px;
   font-family: 'Montserrat','Helvetica Neue',Arial,sans-serif;
@@ -62,21 +75,10 @@ const PokemonImageType = styled.img`
   height: 30px; 
 `;
 
-const EvoLine = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  // margin-top: 8px;
-`;
-
-const PokeImgEvo = styled.img`
-  width: 35px;
-  height: 35px; 
-`;
-
 const Arrow = styled.span`
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
+  color: white;
 `;
 
 const spin = keyframes`
@@ -94,23 +96,25 @@ const Spinner = styled.div`
   margin: 50px auto;
 `;
 
-/* helper para normalizar '#001' / '001' / 1 -> '1' (string) */
+/* normaliza '#001' / '001' / 1 -> '1' */
 function normalizeNumber(value) {
   if (value === undefined || value === null) return null;
   const s = String(value);
   const digits = s.replace(/\D/g, "");
   if (!digits) return null;
-  // remove zeros à esquerda: parseInt -> '1' de '001'
   return String(parseInt(digits, 10));
 }
 
-/* helper para montar src da imagem com fallback */
+/* id/number normalizado de um Pokémon do /home */
+function pokeKeyFromHome(p) {
+  return normalizeNumber(p?.number) ?? normalizeNumber(p?.id);
+}
+
+/* monta id da imagem */
 function imageIdForSrc(obj) {
-  // tenta id (numérico) primeiro, senão number (raw), senão normalized digits
   if (obj == null) return "";
   if (obj.id !== undefined && obj.id !== null) return String(obj.id);
   if (obj.number) {
-    // se number já tiver formato utilizável, remova apenas o '#'
     const raw = String(obj.number).replace(/^#/, "");
     if (raw) return raw;
   }
@@ -143,11 +147,6 @@ function CardPokemons() {
         setPokemons(pokemonsData || []);
         setPokemonsType(typesData || []);
         setEvolves(evolvesData || []);
-
-        // descomente para debug rápido:
-        // console.log("pokemons", pokemonsData);
-        // console.log("evolves", evolvesData);
-
       } catch (err) {
         console.error("Falha no fetch:", err.message);
         setPokemons([]);
@@ -157,89 +156,85 @@ function CardPokemons() {
         setLoading(false);
       }
     }
-
     fetchData();
   }, []);
 
   if (loading) return <Spinner />;
-  if (!pokemons || pokemons.length === 0) return <Spinner />;
-  if (!pokemonstype || pokemonstype.length === 0) return <Spinner />;
+  if (!pokemons?.length) return <Spinner />;
+  if (!pokemonstype?.length) return <Spinner />;
+
+  // ---- AGRUPA por cadeias evolutivas (e adiciona "solteiros") ----
+  const evoGroups = [];
+
+  // 1) grupos vindos do /evolve
+  for (const chain of (evolves || [])) {
+    const fullLine = [
+      { number: chain?.pokemon?.number, name: chain?.pokemon?.name },
+      ...((chain?.evolve) || []),
+    ].filter(x => x && x.number);
+
+    const group = fullLine
+      .map(ev => pokemons.find(p => pokeKeyFromHome(p) === normalizeNumber(ev.number)))
+      .filter(Boolean);
+
+    if (group.length > 0) {
+      evoGroups.push(group);
+    }
+  }
+
+  // 2) adiciona pokémon que não apareceu em nenhuma cadeia (sem evolução)
+  const covered = new Set(
+    evoGroups.flat().map(p => pokeKeyFromHome(p)).filter(Boolean)
+  );
+
+  const singles = pokemons.filter(p => {
+    const key = pokeKeyFromHome(p);
+    return key && !covered.has(key);
+  });
+
+  for (const single of singles) {
+    evoGroups.push([single]); // um grid com um único card
+  }
 
   return (
     <Card>
-      {pokemons.map((pokemon) => {
-        const pokeKey = normalizeNumber(pokemon.number) || normalizeNumber(pokemon.id);
+      {evoGroups.map((group, idx) => (
+        <PokemonEvoGrid key={idx}>
+          {group.map((pokemon, i) => (
+            <div key={pokemon.id ?? pokemon.number} style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <PokemonCard>
+                <PokeNumber>#{pokemon.id ?? (pokemon.number || "")}</PokeNumber>
 
-        // pega a cadeia evolutiva completa
-        let baseEntry = evolves.find(ev =>
-          normalizeNumber(ev?.pokemon?.number) === pokeKey ||
-          (Array.isArray(ev.evolve) && ev.evolve.some(child => normalizeNumber(child.number) === pokeKey))
-        );
+                <PokemonImage
+                  src={
+                    pokemon.image ||
+                    `http://localhost:8000/home/${imageIdForSrc(pokemon)}/img`
+                  }
+                  alt={pokemon.name}
+                />
 
-        let fullEvoLine = [];
-        if (baseEntry) {
-          fullEvoLine = [
-            { number: baseEntry.pokemon.number, name: baseEntry.pokemon.name },
-            ...(baseEntry.evolve || [])
-          ];
-        }
+                <PokeName style={{ textTransform: "uppercase" }}>
+                  {pokemon.name}
+                </PokeName>
 
-        return (
-          <PokemonCard key={pokemon.id ?? pokemon.number}>
-            <PokeNumber>#{pokemon.id ?? (pokemon.number || "")}</PokeNumber>
-
-            <PokemonImage
-              src={
-                pokemon.image ||
-                `http://localhost:8000/home/${imageIdForSrc(pokemon)}/img`
-              }
-              alt={pokemon.name}
-            />
-
-            <PokeName style={{ textTransform: "uppercase" }}>{pokemon.name}</PokeName>
-
-            <PokemonImageTypeFrame>
-              {(Array.isArray(pokemon.type) ? pokemon.type.slice(0, 2) : [pokemon.type])
-                .filter(Boolean)
-                .map((type) => (
-                  <PokemonImageType
-                    key={type}
-                    src={`http://localhost:8000/type/${encodeURIComponent(type)}.png`}
-                    alt={String(type)}
-                  />
-                ))}
-            </PokemonImageTypeFrame>
-
-            {fullEvoLine && fullEvoLine.length > 1 && (
-              <EvoLine>
-                {fullEvoLine.map((ev, idx) => {
-                  const evImgId =
-                    (ev.number ? String(ev.number).replace(/\D/g, "") : normalizeNumber(ev.number)) ||
-                    ev.number ||
-                    ev.name;
-
-                  return (
-                    <span key={`${evImgId}-${ev.name}`} style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                      {idx > 0 && <Arrow>→</Arrow>}
-                      <PokeImgEvo
-                        src={`http://localhost:8000/home/${evImgId}/img`}
-                        // alt={ev.name}
-                        onError={(e) => {
-                          // fallback se a rota com números sem zeros à esquerda der 404
-                          if (ev.number && !String(ev.number).includes(evImgId)) {
-                            e.currentTarget.src = `http://localhost:8000/home/${encodeURIComponent(ev.number)}/img`;
-                          }
-                        }}
+                <PokemonImageTypeFrame>
+                  {(Array.isArray(pokemon.type) ? pokemon.type.slice(0, 2) : [pokemon.type])
+                    .filter(Boolean)
+                    .map((type) => (
+                      <PokemonImageType
+                        key={type}
+                        src={`http://localhost:8000/type/${encodeURIComponent(type)}.png`}
+                        alt={String(type)}
                       />
-                      {/* <span style={{ fontSize: 12 }}>{ev.name}</span> */}
-                    </span>
-                  );
-                })}
-              </EvoLine>
-            )}
-          </PokemonCard>
-        );
-      })}
+                    ))}
+                </PokemonImageTypeFrame>
+              </PokemonCard>
+
+              {i < group.length - 1 && <Arrow>→</Arrow>}
+            </div>
+          ))}
+        </PokemonEvoGrid>
+      ))}
     </Card>
   );
 }
