@@ -732,7 +732,7 @@
         "name": "dewgong",
         "type": [
             "water",
-            "ice"
+            "frost"
         ],
         "evolves": false
     },
@@ -765,7 +765,7 @@
         "name": "cloyster",
         "type": [
             "water",
-            "ice"
+            "frost"
         ],
         "evolves": false
     },
@@ -807,15 +807,6 @@
     },
     {
         "id": "096",
-        "name": "steelix",
-        "type": [
-            "rock",
-            "steel"
-        ],
-        "evolves": false
-    },
-    {
-        "id": "097",
         "name": "drowzee",
         "type": [
             "psychic"
@@ -823,7 +814,7 @@
         "evolves": true
     },
     {
-        "id": "098",
+        "id": "097",
         "name": "hypno",
         "type": [
             "psychic"
@@ -831,8 +822,16 @@
         "evolves": false
     },
     {
-        "id": "099",
+        "id": "098",
         "name": "krabby",
+        "type": [
+            "water"
+        ],
+        "evolves": true
+    },
+    {
+        "id": "099",
+        "name": "kingler",
         "type": [
             "water"
         ],
@@ -847,7 +846,7 @@
         "evolves": true
     },
     {
-        "id": "102",
+        "id": "101",
         "name": "electrode",
         "type": [
             "eletric"
@@ -855,8 +854,17 @@
         "evolves": false
     },
     {
-        "id": "103",
+        "id": "102",
         "name": "exeggcute",
+        "type": [
+            "grass",
+            "psychic"
+        ],
+        "evolves": true
+    },
+    {
+        "id": "103",
+        "name": "Exeggutor",
         "type": [
             "grass",
             "psychic"
@@ -1029,7 +1037,7 @@
         "id": "124",
         "name": "jynx",
         "type": [
-            "ice",
+            "frost",
             "psychic"
         ],
         "evolves": false
@@ -1088,7 +1096,7 @@
         "name": "lapras",
         "type": [
             "water",
-            "ice"
+            "frost"
         ],
         "evolves": false
     },
@@ -1176,7 +1184,6 @@
         ],
         "evolves": false
     },
-    
     {
         "id": "142",
         "name": "aerodactyl",
@@ -1198,7 +1205,7 @@
         "id": "144",
         "name": "articuno",
         "type": [
-            "ice",
+            "frost",
             "flying"
         ],
         "evolves": false
