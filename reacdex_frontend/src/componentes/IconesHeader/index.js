@@ -18,11 +18,18 @@ const icones = [light_theme];
 function IconesHeader() {
     return (
         <Icones>
-            {icones.map((icone) => (
-                <Icone><img src={icone} alt='icone'></img></Icone>
+            {icones.map((icon, idx) => (
+                <Icone key={idx}>
+                    <img
+
+                        src={icon}
+                        alt={`icone-${idx}`}
+                    />
+                </Icone>
             ))}
         </Icones>
     )
+
 }
 
 export default IconesHeader;

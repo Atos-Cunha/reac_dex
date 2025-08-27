@@ -1,16 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './routes/Home';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
 import Header from './componentes/Header';
+import Home from './routes/Home';
+// import Evolves from './routes/Evolves';
+// import Types from './routes/Types.js';
 import Fav from './routes/Fav';
 
-const GloblaStyle = createGlobalStyle`
-*{
-  text-decoration: none;
-}
+const GlobalStyle = createGlobalStyle`
+  * {
+    text-decoration: none;
+  }
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -26,25 +31,49 @@ const GloblaStyle = createGlobalStyle`
   }
 
   li {
-      list-style: none;
+    list-style: none;
   }
-`
+`;
+
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: (
+        <>
+          <Header />
+          <Home />
+        </>
+      ),
+    },
+    {
+      path: '/fav',
+      element: (
+        <>
+          <Header />
+          <Fav />
+        </>
+      ),
+    },
+    // { path: '/evolves', element: <Evolves /> },
+    // { path: '/types', element: <Types /> },
+  ],
+  {
+    future: {
+      v7_startTransition: true,
+      v7_relativeSplatPath: true,
+      v7_fetcherPersist: true,
+      v7_normalizeFormMethod: true,
+    },
+  }
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <GloblaStyle />
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/fav" element={<Fav />} />
-      </Routes>
-    </BrowserRouter>
+    <GlobalStyle />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

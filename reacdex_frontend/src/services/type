@@ -3,7 +3,7 @@ import axios from "axios";
 const list_api = axios.create({baseURL: "http://localhost:8000/type"});
 
 async function listPokemon() {
-    const response = await list_api.get('/type');
+    const response = await list_api.get('/');
 
     return response.data;
 }

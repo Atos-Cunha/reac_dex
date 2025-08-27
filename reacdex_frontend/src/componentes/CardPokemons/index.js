@@ -1,58 +1,43 @@
 import { useEffect, useState } from 'react';
 import styled, { keyframes } from "styled-components";
 
-const moveBackground = keyframes`
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-`;
-
 const Card = styled.div`
   height: auto;
   margin: 0 auto; 
-  // background-image: linear-gradient(60deg, #08416cff 0%, #bde8fbff 100%);
   border-radius: 10px;
+
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 
+// background-image: linear-gradient(60deg, #08416cff 0%, #bde8fbff 100%);
   background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd);
-  background-size: 400% 400%;
-  animation: ${moveBackground} 10s ease infinite;
+
+  width: 100%;
+  // height: auto;
+  // min-width: 20%;
 `;
 
 const PokemonCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 15px;
+  // padding: 15px;
   margin: 5px;
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-`;
 
-const PokemonEvoGrid = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 15px;
-  margin: 10px;
-  border-radius: 8px;
-  background-color: #e3f5fd;
-  // background-image: linear-gradient(60deg, #08416cff 0%, #bde8fbff 100%);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  gap: 15px;
-`;
+  width: auto;
+  // width: 80%;
+  // width: 200px;
+  // height: 200px;
+  // min-width: 20%;
+
+  `;
 
 const PokeNumber = styled.p`
   font-size: 20px;
@@ -93,11 +78,54 @@ const PokemonImageType = styled.img`
   height: 30px; 
 `;
 
-const Arrow = styled.span`
-  font-size: 30px;
-  font-weight: bold;
-  color: #000;
+const PokemonEvoGrid = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #e3f5fd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  background-image: linear-gradient(60deg, #08416cff 0%, #bde8fbff 100%);
+  // gap: 15px;
+  // width: 200px;
+  // height: 200px;
 `;
+
+const EvoLine = styled.div`
+  // display: flex;
+  // align-items: center;
+  // gap: 8px;
+  // margin-top: 8px;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #e3f5fd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+`;
+
+const PokeImgEvo = styled.img`
+  width: 30px;
+  height: 30px; 
+  object-fit: contain;
+`;
+
+// const Arrow = styled.span`
+//   font-size: 30px;
+//   font-weight: bold;
+//   color: #000;
+// `;
 
 const spin = keyframes`
   0% { transform: rotate(0deg); }
@@ -143,6 +171,9 @@ function CardPokemons() {
   const [pokemons, setPokemons] = useState([]);
   const [evolves, setEvolves] = useState([]);
   const [pokemonstype, setPokemonsType] = useState([]);
+
+
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -150,8 +181,8 @@ function CardPokemons() {
       try {
         const [resPokemons, resTypes, resEvolves] = await Promise.all([
           fetch("http://localhost:8000/home"),
-          fetch("http://localhost:8000/type"),
-          fetch("http://localhost:8000/evolve"),
+          fetch("http://localhost:8000/types"),
+          fetch("http://localhost:8000/evolves"),
         ]);
 
         if (!resPokemons.ok) throw new Error("Erro ao buscar pokemons");
@@ -180,6 +211,7 @@ function CardPokemons() {
   if (loading) return <Spinner />;
   if (!pokemons?.length) return <Spinner />;
   if (!pokemonstype?.length) return <Spinner />;
+  if (!evolves?.length) return <Spinner />;
 
   // ---- AGRUPA por cadeias evolutivas (e adiciona "solteiros") ----
   const evoGroups = [];
@@ -217,41 +249,59 @@ function CardPokemons() {
   return (
     <Card>
       {evoGroups.map((group, idx) => (
-        <PokemonEvoGrid key={idx}>
+        <PokemonCard key={idx}>
           {group.map((pokemon, i) => (
+
             <div key={pokemon.id ?? pokemon.number} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <PokemonCard>
-                <PokeNumber>#{pokemon.id ?? (pokemon.number || "")}</PokeNumber>
 
-                <PokemonImage
-                  src={
-                    pokemon.image ||
-                    `http://localhost:8000/home/${imageIdForSrc(pokemon)}/img`
-                  }
-                  alt={pokemon.name}
-                />
 
-                <PokeName style={{ textTransform: "uppercase" }}>
-                  {pokemon.name}
-                </PokeName>
 
-                <PokemonImageTypeFrame>
-                  {(Array.isArray(pokemon.type) ? pokemon.type.slice(0, 2) : [pokemon.type])
-                    .filter(Boolean)
-                    .map((type) => (
-                      <PokemonImageType
-                        key={type}
-                        src={`http://localhost:8000/type/${encodeURIComponent(type)}.png`}
-                        alt={String(type)}
-                      />
-                    ))}
-                </PokemonImageTypeFrame>
-              </PokemonCard>
 
-              {i < group.length - 1 && <Arrow>→</Arrow>}
+              <PokeNumber>#{pokemon.id ?? (pokemon.number || "")}</PokeNumber>
+
+              <PokemonImage
+                src={
+                  pokemon.image ||
+                  `http://localhost:8000/home/${imageIdForSrc(pokemon)}/img`
+                }
+                alt={pokemon.name}
+              />
+
+              <PokeName style={{ textTransform: "uppercase" }}>
+                {pokemon.name}
+              </PokeName>
+
+              <PokemonImageTypeFrame>
+                {(Array.isArray(pokemon.type) ? pokemon.type.slice(0, 2) : [pokemon.type])
+                  .filter(Boolean)
+                  .map((type) => (
+                    <PokemonImageType
+                      key={type}
+                      src={`http://localhost:8000/types/${encodeURIComponent(type)}.png`}
+                      alt={String(type)}
+                    />
+                  ))}
+              </PokemonImageTypeFrame>
+              <PokemonEvoGrid>
+                {(Array.isArray(pokemon.evolve) ? pokemon.evolves.slice(0, 3) : [pokemon.evolve])
+                  .filter(Boolean)
+                  .map((evolve) => (
+                    <PokemonImageType
+                      key={evolve}
+                      src={`http://localhost:8000/home/${encodeURIComponent(evolve)}/img`}
+                      alt={String(evolve)}
+                    />,
+                    <PokeNumber>#{
+                      
+                    console.log(evolve)
+                    }</PokeNumber>
+                  ))}
+              </PokemonEvoGrid>
+
             </div>
           ))}
-        </PokemonEvoGrid>
+
+        </PokemonCard>
       ))}
     </Card>
   );
