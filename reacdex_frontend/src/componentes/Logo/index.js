@@ -5,6 +5,15 @@ const LogoContainer = styled.div`
     color: #000;
     display: flex;
     font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-itens: center;
+`;
+
+const LogoName = styled.p`
+    font-size: 25px;
+    color: red;
+    text-align: center;
 `;
 
 const LogoImage = styled.img`
@@ -14,8 +23,9 @@ const LogoImage = styled.img`
 function Logo() {
     return (
         <LogoContainer>
+            <LogoName><strong>Reac</strong>Dex</LogoName>
             <LogoImage src={logo} alt='logo'></LogoImage>
-            <p><strong>Reac</strong>Dex</p>
+
         </LogoContainer>
     )
 }

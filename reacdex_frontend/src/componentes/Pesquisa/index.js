@@ -5,7 +5,7 @@ import { post_fav } from "../../services/fav";
 
 const PesquisaContainer = styled.section`
   background-image: linear-gradient(90deg, #08416cff 0%, #bde8fbff 100%);
-
+  border-radius: 10px;
   color: #FFF;
   text-align: center;
   padding: 40px 0;

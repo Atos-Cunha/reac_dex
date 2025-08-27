@@ -1,15 +1,32 @@
 import { useEffect, useState } from 'react';
 import styled, { keyframes } from "styled-components";
 
+const moveBackground = keyframes`
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+`;
+
 const Card = styled.div`
   height: auto;
   margin: 0 auto; 
-  background-color: #e3f5fd;
+  // background-image: linear-gradient(60deg, #08416cff 0%, #bde8fbff 100%);
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+
+  background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd);
+  background-size: 400% 400%;
+  animation: ${moveBackground} 10s ease infinite;
 `;
 
 const PokemonCard = styled.div`
@@ -27,11 +44,12 @@ const PokemonEvoGrid = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   padding: 15px;
   margin: 10px;
   border-radius: 8px;
-  background: #0000008a;
+  background-color: #e3f5fd;
+  // background-image: linear-gradient(60deg, #08416cff 0%, #bde8fbff 100%);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   gap: 15px;
 `;
@@ -76,9 +94,9 @@ const PokemonImageType = styled.img`
 `;
 
 const Arrow = styled.span`
-  font-size: 22px;
+  font-size: 30px;
   font-weight: bold;
-  color: white;
+  color: #000;
 `;
 
 const spin = keyframes`
