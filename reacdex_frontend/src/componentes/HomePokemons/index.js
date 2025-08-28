@@ -212,9 +212,64 @@ function HomePokemons() {
     evoGroups.push([single]);
   }
 
+  // return (
+  //   <FrameCard>
+  //     {pokemons.map((pokemon) => (
+  //       <PokemonCard key={pokemon.id ?? pokemon.number}>
+  //         <PokeNumber>#{pokemon.id ?? (pokemon.number || "")}</PokeNumber>
+
+  //         <PokemonImage
+  //           src={
+  //             pokemon.image ||
+  //             `http://localhost:8000/home/${imageIdForSrc(pokemon)}/img`
+  //           }
+  //           alt={pokemon.name}
+  //         />
+
+  //         <PokeName>{pokemon.name}</PokeName>
+
+  //         <PokemonImageTypeFrame>
+  //           {(Array.isArray(pokemon.type) ? pokemon.type.slice(0, 2) : [pokemon.type])
+  //             .filter(Boolean)
+  //             .map((type) => (
+  //               <PokemonImageType
+  //                 key={type}
+  //                 src={`http://localhost:8000/types/${encodeURIComponent(type)}.png`}
+  //                 alt={String(type)}
+  //               />
+  //             ))}
+  //         </PokemonImageTypeFrame>
+
+  //         {evoGroups.map((group, idx) => (
+  //           <PokemonEvoGrid>
+  //             {group.map((pokemon) => (
+  //               <EvolveCard>
+  //                 <PokeImgEvo
+  //                   src={
+  //                     pokemon.image ||
+  //                     `http://localhost:8000/home/${imageIdForSrc(pokemon)}/img`
+  //                   }
+  //                 />
+  //               </EvolveCard>
+  //             ))}
+  //           </PokemonEvoGrid>
+  //         ))}
+  //       </PokemonCard>
+
+  //     ))}
+  //   </FrameCard>
+  // );
+
+
   return (
-    <FrameCard>
-      {pokemons.map((pokemon) => (
+  <FrameCard>
+    {pokemons.map((pokemon) => {
+      // encontra o grupo de evolução que contém o Pokémon atual
+      const evoGroup = evoGroups.find(group =>
+        group.some(p => pokeKeyFromHome(p) === pokeKeyFromHome(pokemon))
+      );
+
+      return (
         <PokemonCard key={pokemon.id ?? pokemon.number}>
           <PokeNumber>#{pokemon.id ?? (pokemon.number || "")}</PokeNumber>
 
@@ -240,25 +295,28 @@ function HomePokemons() {
               ))}
           </PokemonImageTypeFrame>
 
-          {evoGroups.map((group, idx) => (
+          {/* renderiza somente a linha evolutiva correspondente */}
+          {evoGroup && (
             <PokemonEvoGrid>
-              {group.map((pokemon) => (
-                <EvolveCard>
+              {evoGroup.map((ev) => (
+                <EvolveCard key={ev.id ?? ev.number}>
                   <PokeImgEvo
                     src={
-                      pokemon.image ||
-                      `http://localhost:8000/home/${imageIdForSrc(pokemon)}/img`
+                      ev.image ||
+                      `http://localhost:8000/home/${imageIdForSrc(ev)}/img`
                     }
+                    alt={ev.name}
                   />
                 </EvolveCard>
               ))}
             </PokemonEvoGrid>
-          ))}
+          )}
         </PokemonCard>
+      );
+    })}
+  </FrameCard>
+);
 
-      ))}
-    </FrameCard>
-  );
 }
 
 export default HomePokemons;
