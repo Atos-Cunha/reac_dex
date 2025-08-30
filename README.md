@@ -1,5 +1,7 @@
 APÓS DOWNLOAD DO PROJETO
+
 Iniciar o Node.js e instalar os modulos necessarios 
+
 Abaixo segue os passos para subir o ambiente.
 
 
@@ -11,6 +13,7 @@ INSERIR O COMANDO
 
 
 NOS DIRETORIOS SEGUINTES 
+
 A PARTIR DO DIRETORIO RAIZ
 MOVER E INSTALAR
 
@@ -29,12 +32,12 @@ MOVER E INSTALAR
 SE NECESSARIO VERIFICAR OS ARQUIVOS NOS DIRETORIOS node_modules 
 
 
-SUBIR BACKEND
+# SUBIR BACKEND
 
         cd ./pasta_destino_backend        
         node app.js
 
-SUBIR FRONTEND
+# SUBIR FRONTEND
 
         cd ./pasta_destino_frontend/src
         npm start
