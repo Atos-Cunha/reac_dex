@@ -10,16 +10,10 @@ Abaixo segue os passos para subir o ambiente.
 
 INICIAR TERMINAL
 
-NA RAIZ DO PROJETO 
-
-INSERIR O COMANDO 
-        
-        npm init 
-
-
-NOS DIRETORIOS SEGUINTES 
+ACESSAR OS DIRETORIOS DO PROJETO 
 
 A PARTIR DO DIRETORIO RAIZ
+
 MOVER E INSTALAR
 
         
