@@ -3,16 +3,16 @@ Iniciar o Node.js e instalar os modulos necessarios
 Abaixo segue os passos para subir o ambiente.
 
 
-# NA RAIZ DO PROJETO 
-# INICIAR TERMINAL
-# INSERIR O COMANDO 
+NA RAIZ DO PROJETO 
+INICIAR TERMINAL
+INSERIR O COMANDO 
         
         npm init 
 
 
-# NOS DIRETORIOS SEGUINTES 
-# A PARTIR DO DIRETORIO RAIZ
-# MOVER E INSTALAR
+NOS DIRETORIOS SEGUINTES 
+A PARTIR DO DIRETORIO RAIZ
+MOVER E INSTALAR
 
         
         cd ./pasta_destino_front
@@ -26,15 +26,15 @@ Abaixo segue os passos para subir o ambiente.
         npm install
 
 
-# SE NECESSARIO VERIFICAR OS ARQUIVOS NOS DIRETORIOS node_modules 
+SE NECESSARIO VERIFICAR OS ARQUIVOS NOS DIRETORIOS node_modules 
 
 
-# SUBIR BACKEND
+SUBIR BACKEND
 
         cd ./pasta_destino_backend        
         node app.js
 
-# SUBIR FRONTEND
+SUBIR FRONTEND
 
         cd ./pasta_destino_frontend/src
         npm start
