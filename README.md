@@ -13,9 +13,11 @@ ENTAO SERA REALIZADO O PROCESSO DE UTILIZACAO DO COMANDO
 
 ->      
         npm install
+
+        
 NOS SEGUINTES DIRETORIOS A PARTIR DO DIRETORIO RAIZ
 
-->
+
         
         cd ./pasta_destino_front
 
