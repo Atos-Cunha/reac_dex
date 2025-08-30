@@ -8,8 +8,9 @@ Iniciar o Node.js e instalar os modulos necessarios
 Abaixo segue os passos para subir o ambiente.
 
 
-NA RAIZ DO PROJETO 
 INICIAR TERMINAL
+
+NA RAIZ DO PROJETO 
 
 INSERIR O COMANDO 
         
