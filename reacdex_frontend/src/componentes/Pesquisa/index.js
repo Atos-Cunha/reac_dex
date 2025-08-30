@@ -1,10 +1,11 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useEffect, useState } from 'react';
 import Input from "../Input";
 import { post_fav } from "../../services/fav";
 
 const PesquisaContainer = styled.section`
-  background-image: linear-gradient(90deg, #002F52 35%, #326589 165%);
+  background-image: linear-gradient(90deg, #08416cff 0%, #bde8fbff 100%);
+  border-radius: 10px;
   color: #FFF;
   text-align: center;
   padding: 40px 0;

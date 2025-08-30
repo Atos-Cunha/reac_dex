@@ -9,7 +9,7 @@ function getAllTypes() {
             .filter(file => /\.(png|jpg|jpeg|gif)$/i.test(file)) 
             .map(file => ({
                 name: path.parse(file).name,
-                url: `/type/${file}`
+                url: `/types/${file}`
             }));
     } catch (error) {
         throw new Error("Erro ao ler a pasta de imagens");

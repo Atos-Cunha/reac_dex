@@ -1,58 +1,20 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled from "styled-components";
 import { GenTitle } from '../GenTitle';
 import CardPokemons from '../CardPokemons';
 
 const FramePokeCardsContainer = styled.section`
-    // background: linear-gradient(90deg, #EB9B00, #7A4A00);
     max-width: 80%;
+    max-height: 100%;
     margin: 0 auto; 
-    background-color: #EBECEE;
+    padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
     flex-direction: column;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
 `;
 
 function FramePokeCards() {
-    const [pokemons, setPokemons] = useState([]);
-    const [pokemonstype, setPokemonsType] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        async function fetchPokemons() {
-            try {
-                const response = await fetch("http://localhost:3001/pokemons");
-                if (!response.ok) throw new Error("Erro ao buscar pokemons");
-                const data = await response.json();
-                setPokemons(data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchPokemons();
-    }, []);
-
-        useEffect(() => {
-        async function fetchPokemonsType() {
-            try {
-                const response = await fetch("http://localhost:3002/type");
-                if (!response.ok) throw new Error("Erro ao buscar tipo");
-                const data = await response.json();
-                setPokemonsType(data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchPokemonsType();
-    }, []);
-
     return (
         <FramePokeCardsContainer>
             <GenTitle>Kanto - First Gen</GenTitle>

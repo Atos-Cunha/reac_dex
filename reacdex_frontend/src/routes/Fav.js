@@ -9,31 +9,31 @@ const AppContainer = styled.div`
     background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
 `
 
-const ResultadoContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-`
+// const ResultadoContainer = styled.div`
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+// `
 
-const Resultado = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    cursor: pointer;
-    text-align: center;
-    padding: 0 100px;
-    p {
-        width: 200px;
-        color: #FFF;
-    }
-    img {
-        width: 100px;
-    }
-    &:hover {
-        border: 1px solid white;
-    }
-`
+// const Resultado = styled.div`
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin: 20px 0;
+//     cursor: pointer;
+//     text-align: center;
+//     padding: 0 100px;
+//     p {
+//         width: 200px;
+//         color: #FFF;
+//     }
+//     img {
+//         width: 100px;
+//     }
+//     &:hover {
+//         border: 1px solid white;
+//     }
+// `
 
 const Titulo = styled.h2`
     color: #FFF;
@@ -65,19 +65,28 @@ function Fav() {
     <AppContainer>
       <div>
         <Titulo>Aqui estão seus itens favoritos:</Titulo>
-        <ResultadoContainer>
-          {
-            fav.length !== 0 ? fav.map(fav => (
-              <Resultado onClick={() => delete_fav(fav.id)}>
-                <p>{fav.nome}</p>
-                {/* <img src={img} alt='imagem do livro' /> */}
-              </Resultado>
-            )) : null
-          }
-        </ResultadoContainer>
       </div>
     </AppContainer>
   );
 }
+
+//   return (
+//     <AppContainer>
+//       <div>
+//         <Titulo>Aqui estão seus itens favoritos:</Titulo>
+//         <ResultadoContainer>
+//           {
+//             fav.length !== 0 ? fav.map(fav => (
+//               <Resultado onClick={() => delete_fav(fav.id)}>
+//                 <p>{fav.nome}</p>
+//                 {/* <img src={img} alt='imagem do livro' /> */}
+//               </Resultado>
+//             )) : null
+//           }
+//         </ResultadoContainer>
+//       </div>
+//     </AppContainer>
+//   );
+// }
 
 export default Fav;

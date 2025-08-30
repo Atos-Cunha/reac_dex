@@ -18,23 +18,23 @@ const Opcoes = styled.ul`
     display: flex;
 `;
 
-const opcoes = ['HOME', 'FAVORITES', 'TYPES'];
+const opcoes = ['HOME', 'EVOLVES', 'TYPES', 'FAV'];
 
 function opcoes_header() {
     return (
         <Opcoes>
-            {
-                opcoes.map((texto) => (
-                    <Link
-                        key={texto}
-                        to={texto.toLowerCase() === "home" ? "/" : `/${texto.toLowerCase()}`}
-                    >
-                        <Opcao><p>{texto}</p></Opcao>
-                    </Link>
-                ))
-            }
+            {opcoes.map((texto) => (
+                <Link
+                    key={texto}
+                    to={texto.toLowerCase() === "home" ? "/" : `/${texto.toLowerCase()}`}
+                >
+                    <Opcao>
+                        <p>{texto === "FAV" ? "FAVORITES" : texto}</p>
+                    </Opcao>
+                </Link>
+            ))}
         </Opcoes>
-    )
+    );
 }
 
 export default opcoes_header;

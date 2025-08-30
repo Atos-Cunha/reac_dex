@@ -1,0 +1,8 @@
+const express = require("express");
+const router = express.Router();
+const { listTypes, getType } = require("../controlers/typeController");
+
+router.get("/", listTypes);
+router.get("/:filename", getType);
+
+module.exports = router;

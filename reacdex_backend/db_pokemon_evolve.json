@@ -1,0 +1,560 @@
+[
+  {
+    "id": "001",
+    "pokemon": {
+      "number": "001",
+      "name": "Bulbasaur"
+    },
+    "evolve": [
+      { "number": "002", "name": "Ivysaur" },
+      { "number": "003", "name": "Venusaur" }
+    ]
+  },
+  {
+    "id": "004",
+    "pokemon": {
+      "number": "004",
+      "name": "Charmander"
+    },
+    "evolve": [
+      { "number": "005", "name": "Charmeleon" },
+      { "number": "006", "name": "Charizard" }
+    ]
+  },
+  {
+    "id": "007",
+    "pokemon": {
+      "number": "007",
+      "name": "Squirtle"
+    },
+    "evolve": [
+      { "number": "008", "name": "Wartortle" },
+      { "number": "009", "name": "Blastoise" }
+    ]
+  },
+  {
+    "id": "010",
+    "pokemon": {
+      "number": "010",
+      "name": "Caterpie"
+    },
+    "evolve": [
+      { "number": "011", "name": "Metapod" },
+      { "number": "012", "name": "Butterfree" }
+    ]
+  },
+  {
+    "id": "013",
+    "pokemon": {
+      "number": "013",
+      "name": "Weedle"
+    },
+    "evolve": [
+      { "number": "014", "name": "Kakuna" },
+      { "number": "015", "name": "Beedrill" }
+    ]
+  },
+  {
+    "id": "016",
+    "pokemon": {
+      "number": "016",
+      "name": "Pidgey"
+    },
+    "evolve": [
+      { "number": "017", "name": "Pidgeotto" },
+      { "number": "018", "name": "Pidgeot" }
+    ]
+  },
+  {
+    "id": "019",
+    "pokemon": {
+      "number": "019",
+      "name": "Rattata"
+    },
+    "evolve": [
+      { "number": "020", "name": "Raticate" }
+    ]
+  },
+  {
+    "id": "021",
+    "pokemon": {
+      "number": "021",
+      "name": "Spearow"
+    },
+    "evolve": [
+      { "number": "022", "name": "Fearow" }
+    ]
+  },
+  {
+    "id": "023",
+    "pokemon": {
+      "number": "023",
+      "name": "Ekans"
+    },
+    "evolve": [
+      { "number": "024", "name": "Arbok" }
+    ]
+  },
+  {
+    "id": "025",
+    "pokemon": {
+      "number": "025",
+      "name": "Pikachu"
+    },
+    "evolve": [
+      { "number": "026", "name": "Raichu" }
+    ]
+  },
+  {
+    "id": "027",
+    "pokemon": {
+      "number": "027",
+      "name": "Sandshrew"
+    },
+    "evolve": [
+      { "number": "028", "name": "Sandslash" }
+    ]
+  },
+  {
+    "id": "029",
+    "pokemon": {
+      "number": "029",
+      "name": "Nidoran♀"
+    },
+    "evolve": [
+      { "number": "030", "name": "Nidorina" },
+      { "number": "031", "name": "Nidoqueen" }
+    ]
+  },
+  {
+    "id": "032",
+    "pokemon": {
+      "number": "032",
+      "name": "Nidoran♂"
+    },
+    "evolve": [
+      { "number": "033", "name": "Nidorino" },
+      { "number": "034", "name": "Nidoking" }
+    ]
+  },
+  {
+    "id": "035",
+    "pokemon": {
+      "number": "035",
+      "name": "Clefairy"
+    },
+    "evolve": [
+      { "number": "036", "name": "Clefable" }
+    ]
+  },
+  {
+    "id": "037",
+    "pokemon": {
+      "number": "037",
+      "name": "Vulpix"
+    },
+    "evolve": [
+      { "number": "038", "name": "Ninetales" }
+    ]
+  },
+  {
+    "id": "039",
+    "pokemon": {
+      "number": "039",
+      "name": "Jigglypuff"
+    },
+    "evolve": [
+      { "number": "040", "name": "Wigglytuff" }
+    ]
+  },
+  {
+    "id": "041",
+    "pokemon": {
+      "number": "041",
+      "name": "Zubat"
+    },
+    "evolve": [
+      { "number": "042", "name": "Golbat" }
+    ]
+  },
+  {
+    "id": "043",
+    "pokemon": {
+      "number": "043",
+      "name": "Oddish"
+    },
+    "evolve": [
+      { "number": "044", "name": "Gloom" },
+      { "number": "045", "name": "Vileplume" }
+    ]
+  },
+  {
+    "id": "046",
+    "pokemon": {
+      "number": "046",
+      "name": "Paras"
+    },
+    "evolve": [
+      { "number": "047", "name": "Parasect" }
+    ]
+  },
+  {
+    "id": "048",
+    "pokemon": {
+      "number": "048",
+      "name": "Venonat"
+    },
+    "evolve": [
+      { "number": "049", "name": "Venomoth" }
+    ]
+  },
+  {
+    "id": "050",
+    "pokemon": {
+      "number": "050",
+      "name": "Diglett"
+    },
+    "evolve": [
+      { "number": "051", "name": "Dugtrio" }
+    ]
+  },
+  {
+    "id": "052",
+    "pokemon": {
+      "number": "052",
+      "name": "Meowth"
+    },
+    "evolve": [
+      { "number": "053", "name": "Persian" }
+    ]
+  },
+  {
+    "id": "054",
+    "pokemon": {
+      "number": "054",
+      "name": "Psyduck"
+    },
+    "evolve": [
+      { "number": "055", "name": "Golduck" }
+    ]
+  },
+  {
+    "id": "056",
+    "pokemon": {
+      "number": "056",
+      "name": "Mankey"
+    },
+    "evolve": [
+      { "number": "057", "name": "Primeape" }
+    ]
+  },
+  {
+    "id": "058",
+    "pokemon": {
+      "number": "058",
+      "name": "Growlithe"
+    },
+    "evolve": [
+      { "number": "059", "name": "Arcanine" }
+    ]
+  },
+  {
+    "id": "060",
+    "pokemon": {
+      "number": "060",
+      "name": "Poliwag"
+    },
+    "evolve": [
+      { "number": "061", "name": "Poliwhirl" },
+      { "number": "062", "name": "Poliwrath" }
+    ]
+  },
+  {
+    "id": "063",
+    "pokemon": {
+      "number": "063",
+      "name": "Abra"
+    },
+    "evolve": [
+      { "number": "064", "name": "Kadabra" },
+      { "number": "065", "name": "Alakazam" }
+    ]
+  },
+  {
+    "id": "066",
+    "pokemon": {
+      "number": "066",
+      "name": "Machop"
+    },
+    "evolve": [
+      { "number": "067", "name": "Machoke" },
+      { "number": "068", "name": "Machamp" }
+    ]
+  },
+  {
+    "id": "069",
+    "pokemon": {
+      "number": "069",
+      "name": "Bellsprout"
+    },
+    "evolve": [
+      { "number": "070", "name": "Weepinbell" },
+      { "number": "071", "name": "Victreebel" }
+    ]
+  },
+  {
+    "id": "072",
+    "pokemon": {
+      "number": "072",
+      "name": "Tentacool"
+    },
+    "evolve": [
+      { "number": "073", "name": "Tentacruel" }
+    ]
+  },
+  {
+    "id": "074",
+    "pokemon": {
+      "number": "074",
+      "name": "Geodude"
+    },
+    "evolve": [
+      { "number": "075", "name": "Graveler" },
+      { "number": "076", "name": "Golem" }
+    ]
+  },
+  {
+    "id": "077",
+    "pokemon": {
+      "number": "077",
+      "name": "Ponyta"
+    },
+    "evolve": [
+      { "number": "078", "name": "Rapidash" }
+    ]
+  },
+  {
+    "id": "079",
+    "pokemon": {
+      "number": "079",
+      "name": "Slowpoke"
+    },
+    "evolve": [
+      { "number": "080", "name": "Slowbro" }
+    ]
+  },
+  {
+    "id": "081",
+    "pokemon": {
+      "number": "081",
+      "name": "Magnemite"
+    },
+    "evolve": [
+      { "number": "082", "name": "Magneton" }
+    ]
+  },
+  {
+    "id": "084",
+    "pokemon": {
+      "number": "084",
+      "name": "Doduo"
+    },
+    "evolve": [
+      { "number": "085", "name": "Dodrio" }
+    ]
+  },
+  {
+    "id": "086",
+    "pokemon": {
+      "number": "086",
+      "name": "Seel"
+    },
+    "evolve": [
+      { "number": "087", "name": "Dewgong" }
+    ]
+  },
+  {
+    "id": "088",
+    "pokemon": {
+      "number": "088",
+      "name": "Grimer"
+    },
+    "evolve": [
+      { "number": "089", "name": "Muk" }
+    ]
+  },
+  {
+    "id": "090",
+    "pokemon": {
+      "number": "090",
+      "name": "Shellder"
+    },
+    "evolve": [
+      { "number": "091", "name": "Cloyster" }
+    ]
+  },
+  {
+    "id": "092",
+    "pokemon": {
+      "number": "092",
+      "name": "Gastly"
+    },
+    "evolve": [
+      { "number": "093", "name": "Haunter" },
+      { "number": "094", "name": "Gengar" }
+    ]
+  },
+  {
+    "id": "096",
+    "pokemon": {
+      "number": "096",
+      "name": "Drowzee"
+    },
+    "evolve": [
+      { "number": "097", "name": "Hypno" }
+    ]
+  },
+  {
+    "id": "098",
+    "pokemon": {
+      "number": "098",
+      "name": "Krabby"
+    },
+    "evolve": [
+      { "number": "099", "name": "Kingler" }
+    ]
+  },
+  {
+    "id": "100",
+    "pokemon": {
+      "number": "100",
+      "name": "Voltorb"
+    },
+    "evolve": [
+      { "number": "101", "name": "Electrode" }
+    ]
+  },
+  {
+    "id": "102",
+    "pokemon": {
+      "number": "102",
+      "name": "Exeggcute"
+    },
+    "evolve": [
+      { "number": "103", "name": "Exeggutor" }
+    ]
+  },
+  {
+    "id": "104",
+    "pokemon": {
+      "number": "104",
+      "name": "Cubone"
+    },
+    "evolve": [
+      { "number": "105", "name": "Marowak" }
+    ]
+  },
+  {
+    "id": "109",
+    "pokemon": {
+      "number": "109",
+      "name": "Koffing"
+    },
+    "evolve": [
+      { "number": "110", "name": "Weezing" }
+    ]
+  },
+  {
+    "id": "111",
+    "pokemon": {
+      "number": "111",
+      "name": "Rhyhorn"
+    },
+    "evolve": [
+      { "number": "112", "name": "Rhydon" }
+    ]
+  },
+  {
+    "id": "116",
+    "pokemon": {
+      "number": "116",
+      "name": "Horsea"
+    },
+    "evolve": [
+      { "number": "117", "name": "Seadra" }
+    ]
+  },
+  {
+    "id": "118",
+    "pokemon": {
+      "number": "118",
+      "name": "Goldeen"
+    },
+    "evolve": [
+      { "number": "119", "name": "Seaking" }
+    ]
+  },
+  {
+    "id": "120",
+    "pokemon": {
+      "number": "120",
+      "name": "Staryu"
+    },
+    "evolve": [
+      { "number": "121", "name": "Starmie" }
+    ]
+  },
+  {
+    "id": "129",
+    "pokemon": {
+      "number": "129",
+      "name": "Magikarp"
+    },
+    "evolve": [
+      { "number": "130", "name": "Gyarados" }
+    ]
+  },
+  {
+    "id": "133",
+    "pokemon": {
+      "number": "133",
+      "name": "Eevee"
+    },
+    "evolve": [
+      { "number": "134", "name": "Vaporeon" },
+      { "number": "135", "name": "Jolteon" },
+      { "number": "136", "name": "Flareon" }
+    ]
+  },
+  {
+    "id": "138",
+    "pokemon": {
+      "number": "138",
+      "name": "Omanyte"
+    },
+    "evolve": [
+      { "number": "139", "name": "Omastar" }
+    ]
+  },
+  {
+    "id": "140",
+    "pokemon": {
+      "number": "140",
+      "name": "Kabuto"
+    },
+    "evolve": [
+      { "number": "141", "name": "Kabutops" }
+    ]
+  },
+  {
+    "id": "147",
+    "pokemon": {
+      "number": "147",
+      "name": "Dratini"
+    },
+    "evolve": [
+      { "number": "148", "name": "Dragonair" },
+      { "number": "149", "name": "Dragonite" }
+    ]
+  }
+]

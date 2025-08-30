@@ -4,23 +4,53 @@ import styled, { keyframes } from "styled-components";
 const Card = styled.div`
   height: auto;
   margin: 0 auto; 
-  background-color: #FFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
+
+
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+
+// background-image: linear-gradient(60deg, #08416cff 0%, #bde8fbff 100%);
+  background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd);
+
+  width: 100%;
+  // height: auto;
+  // min-width: 20%;
+`;
+
+const PokemonCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // padding: 15px;
+  margin: 5px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  width: auto;
+  // width: 80%;
+  // width: 200px;
+  // height: 200px;
+  // min-width: 20%;
+
+  `;
+
+const PokeNumber = styled.p`
+  font-size: 20px;
+  font-family: 'Montserrat','Helvetica Neue',Arial,sans-serif;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  color: #333;
 `;
 
 const PokemonImage = styled.img`
+  height: 200px;  
   width: 200px;
-  height: 150px;
-`;
-
-const PokemonImageType = styled.img`
-  width: 20px;
-  height: 20px; 
 `;
 
 const PokeName = styled.p`
@@ -32,21 +62,70 @@ const PokeName = styled.p`
   color: #333;
 `;
 
-const PokeNumber = styled.p`
-  font-size: 20px;
-  font-family: Montserrat;
-`;
-
-const PokemonCard = styled.div`
+const PokemonImageTypeFrame = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
   padding: 15px;
   margin: 5px;
+`;
+
+const PokemonImageType = styled.img`
+  width: 30px;
+  height: 30px; 
+`;
+
+const PokemonEvoGrid = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
   border-radius: 8px;
-  background: #f5f5f5;
+  background-color: #e3f5fd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  background-image: linear-gradient(60deg, #08416cff 0%, #bde8fbff 100%);
+  // gap: 15px;
+  // width: 200px;
+  // height: 200px;
+`;
+
+const EvoLine = styled.div`
+  // display: flex;
+  // align-items: center;
+  // gap: 8px;
+  // margin-top: 8px;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  background-color: #e3f5fd;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 `;
+
+const PokeImgEvo = styled.img`
+  width: 30px;
+  height: 30px; 
+  object-fit: contain;
+`;
+
+// const Arrow = styled.span`
+//   font-size: 30px;
+//   font-weight: bold;
+//   color: #000;
+// `;
 
 const spin = keyframes`
   0% { transform: rotate(0deg); }
@@ -63,89 +142,165 @@ const Spinner = styled.div`
   margin: 50px auto;
 `;
 
+/* normaliza '#001' / '001' / 1 -> '1' */
+function normalizeNumber(value) {
+  if (value === undefined || value === null) return null;
+  const s = String(value);
+  const digits = s.replace(/\D/g, "");
+  if (!digits) return null;
+  return String(parseInt(digits, 10));
+}
+
+/* id/number normalizado de um Pokémon do /home */
+function pokeKeyFromHome(p) {
+  return normalizeNumber(p?.number) ?? normalizeNumber(p?.id);
+}
+
+/* monta id da imagem */
+function imageIdForSrc(obj) {
+  if (obj == null) return "";
+  if (obj.id !== undefined && obj.id !== null) return String(obj.id);
+  if (obj.number) {
+    const raw = String(obj.number).replace(/^#/, "");
+    if (raw) return raw;
+  }
+  return normalizeNumber(obj.number) || "";
+}
+
 function CardPokemons() {
   const [pokemons, setPokemons] = useState([]);
-  const [pokemonstype, setPokemonsType] = useState([]); // não usado, ok manter
+  const [evolves, setEvolves] = useState([]);
+  const [pokemonstype, setPokemonsType] = useState([]);
+
+
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchPokemons() {
+    async function fetchData() {
       try {
-        const response = await fetch("http://localhost:8000/home");
-        if (!response.ok) throw new Error("Erro ao buscar pokemons");
-        const data = await response.json();
-        setPokemons(data);
+        const [resPokemons, resTypes, resEvolves] = await Promise.all([
+          fetch("http://localhost:8000/home"),
+          fetch("http://localhost:8000/types"),
+          fetch("http://localhost:8000/evolves"),
+        ]);
+
+        if (!resPokemons.ok) throw new Error("Erro ao buscar pokemons");
+        if (!resTypes.ok) throw new Error("Erro ao buscar types");
+        if (!resEvolves.ok) throw new Error("Erro ao buscar evoluções");
+
+        const pokemonsData = await resPokemons.json();
+        const typesData = await resTypes.json();
+        const evolvesData = await resEvolves.json();
+
+        setPokemons(pokemonsData || []);
+        setPokemonsType(typesData || []);
+        setEvolves(evolvesData || []);
       } catch (err) {
         console.error("Falha no fetch:", err.message);
         setPokemons([]);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchPokemons();
-  }, []);
-
-  useEffect(() => {
-    async function fetchPokemonsType() {
-      try {
-        const response = await fetch("http://localhost:8000/type");
-        if (!response.ok) throw new Error("Erro ao buscar types");
-        const data = await response.json();
-        setPokemonsType(data);
-      } catch (err) {
-        console.error("Falha no fetch:", err.message);
         setPokemonsType([]);
+        setEvolves([]);
       } finally {
         setLoading(false);
       }
     }
-    fetchPokemonsType();
+    fetchData();
   }, []);
 
-  if (loading || pokemons.length === 0) {
-    return <Spinner />;
+  if (loading) return <Spinner />;
+  if (!pokemons?.length) return <Spinner />;
+  if (!pokemonstype?.length) return <Spinner />;
+  if (!evolves?.length) return <Spinner />;
+
+  // ---- AGRUPA por cadeias evolutivas (e adiciona "solteiros") ----
+  const evoGroups = [];
+
+  // 1) grupos vindos do /evolve
+  for (const chain of (evolves || [])) {
+    const fullLine = [
+      { number: chain?.pokemon?.number, name: chain?.pokemon?.name },
+      ...((chain?.evolve) || []),
+    ].filter(x => x && x.number);
+
+    const group = fullLine
+      .map(ev => pokemons.find(p => pokeKeyFromHome(p) === normalizeNumber(ev.number)))
+      .filter(Boolean);
+
+    if (group.length > 0) {
+      evoGroups.push(group);
+    }
   }
-  if (loading || pokemonstype.length === 0) {
-    return <Spinner />;
+
+  // 2) adiciona pokémon que não apareceu em nenhuma cadeia (sem evolução)
+  const covered = new Set(
+    evoGroups.flat().map(p => pokeKeyFromHome(p)).filter(Boolean)
+  );
+
+  const singles = pokemons.filter(p => {
+    const key = pokeKeyFromHome(p);
+    return key && !covered.has(key);
+  });
+
+  for (const single of singles) {
+    evoGroups.push([single]); // um grid com um único card
   }
+
   return (
     <Card>
-      {pokemons.map((pokemon) => (
-        <PokemonCard key={pokemon.id}>
-          {/* numero */}
-          <PokeNumber>#{pokemon.id}</PokeNumber>
+      {evoGroups.map((group, idx) => (
+        <PokemonCard key={idx}>
+          {group.map((pokemon, i) => (
 
-          {/* imagem do pokemon */}
-          <PokemonImage
-            src={pokemon.image || `http://localhost:8000/home/${pokemon.id}/img`}
-            alt={pokemon.name}
-          />
+            <div key={pokemon.id ?? pokemon.number} style={{ display: "flex", alignItems: "center", gap: 10 }}>
 
-          {/* nome */}
-          <PokeName style={{ textTransform: "uppercase" }}>{pokemon.name}</PokeName>
 
-          {/* imagens dos tipos (até 2) */}
-          <div style={{ display: "flex", gap: "6px" }}>
-            {(Array.isArray(pokemon.type) ? pokemon.type.slice(0, 2) : [pokemon.type])
-              .filter(Boolean)
-              .map((type) => (
-                <PokemonImageType
-                  key={type}
-                  src={`http://localhost:8000/type/${encodeURIComponent(type)}.png`}
-                  alt={String(type)}
-                />
-              ))}
-          </div>
 
-          {/* <PokemonImageType
-            {
-              (Array.isArray(pokemon.type) ? pokemon.type.slice(0, 2) : [pokemon.type])
-              .filter(Boolean)
-              .map((type) => ( <img key={type} src={`http://localhost:8000/type/${type}.png`} /> ))
-            }
-          /> */}
-          {/* evolucao */}
-          <p>{pokemon.evolves ? "Evolui" : "Não evolui"}</p>
+
+              <PokeNumber>#{pokemon.id ?? (pokemon.number || "")}</PokeNumber>
+
+              <PokemonImage
+                src={
+                  pokemon.image ||
+                  `http://localhost:8000/home/${imageIdForSrc(pokemon)}/img`
+                }
+                alt={pokemon.name}
+              />
+
+              <PokeName style={{ textTransform: "uppercase" }}>
+                {pokemon.name}
+              </PokeName>
+
+              <PokemonImageTypeFrame>
+                {(Array.isArray(pokemon.type) ? pokemon.type.slice(0, 2) : [pokemon.type])
+                  .filter(Boolean)
+                  .map((type) => (
+                    <PokemonImageType
+                      key={type}
+                      src={`http://localhost:8000/types/${encodeURIComponent(type)}.png`}
+                      alt={String(type)}
+                    />
+                  ))}
+              </PokemonImageTypeFrame>
+              <PokemonEvoGrid>
+                {(Array.isArray(pokemon.evolve) ? pokemon.evolves.slice(0, 3) : [pokemon.evolve])
+                  .filter(Boolean)
+                  .map((evolve) => (
+                    <PokemonImageType
+                      key={evolve}
+                      src={`http://localhost:8000/home/${encodeURIComponent(evolve)}/img`}
+                      alt={String(evolve)}
+                    />,
+                    <PokeNumber>#{
+                      
+                    console.log(evolve)
+                    }</PokeNumber>
+                  ))}
+              </PokemonEvoGrid>
+
+            </div>
+          ))}
+
         </PokemonCard>
       ))}
     </Card>

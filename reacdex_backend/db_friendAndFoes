@@ -1,0 +1,74 @@
+{
+  "Steel": {
+    "advantage": ["Fairy", "Ice", "Rock"],
+    "disadvantage": ["Steel", "Water", "Electric", "Fire"]
+  },
+  "Water": {
+    "advantage": ["Fire", "Rock", "Ground"],
+    "disadvantage": ["Water", "Dragon", "Grass"]
+  },
+  "Dragon": {
+    "advantage": ["Dragon"],
+    "disadvantage": ["Steel", "Fairy"]
+  },
+  "Electric": {
+    "advantage": ["Water", "Flying"],
+    "disadvantage": ["Dragon", "Electric", "Grass", "Ground"]
+  },
+  "Fairy": {
+    "advantage": ["Dragon", "Fighting", "Dark"],
+    "disadvantage": ["Fire", "Steel", "Poison"]
+  },
+  "Ghost": {
+    "advantage": ["Ghost", "Psychic"],
+    "disadvantage": ["Normal", "Dark"]
+  },
+  "Fire": {
+    "advantage": ["Steel", "Bug", "Ice", "Grass"],
+    "disadvantage": ["Dragon", "Fire", "Rock", "Water"]
+  },
+  "Ice": {
+    "advantage": ["Dragon", "Grass", "Ground", "Flying"],
+    "disadvantage": ["Steel", "Fire", "Ice", "Water"]
+  },
+  "Bug": {
+    "advantage": ["Grass", "Psychic", "Dark"],
+    "disadvantage": ["Steel", "Ghost", "Fire", "Fighting", "Flying", "Poison", "Fairy"]
+  },
+  "Fighting": {
+    "advantage": ["Steel", "Ice", "Normal", "Rock", "Dark"],
+    "disadvantage": ["Fairy", "Ghost", "Psychic", "Bug", "Flying", "Poison"]
+  },
+  "Normal": {
+    "advantage": [],
+    "disadvantage": ["Steel", "Rock", "Ghost"]
+  },
+  "Rock": {
+    "advantage": ["Fire", "Ice", "Bug", "Flying"],
+    "disadvantage": ["Steel", "Fighting", "Ground"]
+  },
+  "Grass": {
+    "advantage": ["Water", "Rock", "Ground"],
+    "disadvantage": ["Bug", "Dragon", "Fire", "Flying", "Grass", "Poison", "Steel"]
+  },
+  "Psychic": {
+    "advantage": ["Fighting", "Poison"],
+    "disadvantage": ["Steel", "Psychic", "Dark"]
+  },
+  "Dark": {
+    "advantage": ["Ghost", "Psychic"],
+    "disadvantage": ["Fairy", "Fighting", "Dark"]
+  },
+  "Ground": {
+    "advantage": ["Electric", "Fire", "Rock", "Steel", "Poison"],
+    "disadvantage": ["Bug", "Grass", "Ice", "Water", "Flying"]
+  },
+  "Poison": {
+    "advantage": ["Grass", "Fairy"],
+    "disadvantage": ["Ghost", "Rock", "Ground", "Poison"]
+  },
+  "Flying": {
+    "advantage": ["Bug", "Fighting", "Grass"],
+    "disadvantage": ["Steel", "Electric", "Rock"]
+  }
+}
