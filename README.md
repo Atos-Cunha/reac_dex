@@ -1,20 +1,18 @@
 APÓS DOWNLOAD DO PROJETO
+Iniciar o Node.js e instalar os modulos necessarios 
+Abaixo segue os passos para subir o ambiente.
 
 
-INSERIR O COMANDO 
+# NA RAIZ DO PROJETO 
+# INICIAR TERMINAL
+# INSERIR O COMANDO 
         
         npm init 
 
-NA RAIZ DO PROJETO
 
-
-ENTAO SERA REALIZADO O PROCESSO DE UTILIZACAO DO COMANDO 
-
-
-        npm install
-
-
-NOS SEGUINTES DIRETORIOS A PARTIR DO DIRETORIO RAIZ
+# NOS DIRETORIOS SEGUINTES 
+# A PARTIR DO DIRETORIO RAIZ
+# MOVER E INSTALAR
 
         
         cd ./pasta_destino_front
@@ -28,27 +26,19 @@ NOS SEGUINTES DIRETORIOS A PARTIR DO DIRETORIO RAIZ
         npm install
 
 
-" # SE NECESSARIO VERIFICAR OS ARQUIVOS DE node_modules # "
+# SE NECESSARIO VERIFICAR OS ARQUIVOS NOS DIRETORIOS node_modules 
 
-        
-        app.js"
-        
+
+# SUBIR BACKEND
+
+        cd ./pasta_destino_backend        
         node app.js
 
-Abrir o diretorio _server e pelo terminal iniciar o arquivo index.js 
-com o comando
+# SUBIR FRONTEND
 
-        node app.js
-
-        "books_react -> src/index.js"
-
-Abrir diretorio do books_react 
-acessar diretorio src 
-iniciar arquivo index.js
-
-
+        cd ./pasta_destino_frontend/src
         npm start
 
 
-"# react_list" 
-"# react_list" 
+
+# react_dex
