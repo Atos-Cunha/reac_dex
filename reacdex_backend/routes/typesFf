@@ -1,0 +1,14 @@
+const express = require("express");
+const router = express.Router();
+const { listTypesFf, getTypeFf, get_all, get_single } = require("../controlers/typesFfController");
+
+
+router.get("/", get_all);
+// router.get("/", listTypesFf);
+router.get("/:filename", getTypeFf);
+router.get("/:filename", get_single);
+get_all
+get_single
+
+
+module.exports = router;

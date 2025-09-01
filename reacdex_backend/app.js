@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const route_home = require("./routes/main");
 const route_types = require("./routes/types");
+const route_typesFf = require("./routes/typesFf");
 const route_evolve = require("./routes/evolves");
 const route_fav = require("./routes/favs");
 
@@ -14,6 +15,7 @@ app.use(cors({origin: "*"}));
 app.use('/home', route_home);
 app.use('/img', express.static(path.join(__dirname, "img_pokemon")));
 app.use('/types', route_types);
+app.use('/typesFf', route_typesFf);
 app.use('/evolves', route_evolve);
 app.use('/fav', route_fav);
 

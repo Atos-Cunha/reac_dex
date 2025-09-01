@@ -1,0 +1,38 @@
+const fs = require("fs");
+const path = require("path");
+const imgFolderFf = path.join(__dirname, "..", "img", "/", "img_types_ff");
+
+function getAllTypesFf() {
+    try {
+        return fs.readdirSync(imgFolderFf)
+            .filter(file => /\.(png|jpg|jpeg|gif)$/i.test(file))
+            .map(file => ({
+                name: path.parse(file).name,
+                url: `/types/${file}`
+            }));
+    } catch (error) {
+        throw new Error("Erro ao ler a pasta de imagens");
+    }
+}
+
+function getTypeImageFf(fileName) {
+    const filePath = path.join(imgFolderFf, fileName);
+    if (fs.existsSync(filePath)) {
+        return filePath;
+    }
+    return null;
+}
+
+function get_all_typesFf() {
+    return JSON.parse(fs.readFileSync("db_friendAndFoes.json"));
+}
+
+function get_single_typeFf(id) {
+    const list = JSON.parse(fs.readFileSync("db_friendAndFoes.json"));
+
+    const filter_item = list.filter(item => item.id === id)[0];
+
+    return filter_item;
+}
+
+module.exports = { getAllTypesFf, getTypeImageFf, get_all_typesFf, get_single_typeFf };

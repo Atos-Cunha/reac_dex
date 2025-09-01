@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "tipo": "Aço",
+    "friend": [
+      "Fada",
+      "Gelo",
+      "Pedra"
+    ],
+    "foe": [
+      "Água",
+      "Elétrico",
+      "Fogo",
+      "Aço"
+    ]
+  },
+  {
+    "id": 2,
+    "tipo": "Água",
+    "friend": [
+      "Fogo",
+      "Pedra",
+      "Terra"
+    ],
+    "foe": [
+      "Água",
+      "Dragão",
+      "Planta"
+    ]
+  },
+  {
+    "id": 3,
+    "tipo": "Dragão",
+    "friend": [
+      "Dragão"
+    ],
+    "foe": [
+      "Aço",
+      "Fada"
+    ]
+  },
+  {
+    "id": 4,
+    "tipo": "Elétrico",
+    "friend": [
+      "Água",
+      "Voador"
+    ],
+    "foe": [
+      "Dragão",
+      "Elétrico",
+      "Planta",
+      "Terra"
+    ]
+  },
+  {
+    "id": 5,
+    "tipo": "Fada",
+    "friend": [
+      "Dragão",
+      "Lutador",
+      "Sombrio"
+    ],
+    "foe": [
+      "Fogo",
+      "Venenoso",
+      "Aço"
+    ]
+  },
+  {
+    "id": 6,
+    "tipo": "Fantasma",
+    "friend": [
+      "Fantasma",
+      "Psíquico"
+    ],
+    "foe": [
+      "Normal",
+      "Sombrio"
+    ]
+  },
+  {
+    "id": 7,
+    "tipo": "Fogo",
+    "friend": [
+      "Inseto",
+      "Planta",
+      "Gelo"
+    ],
+    "foe": [
+      "Água",
+      "Dragão",
+      "Fogo",
+      "Pedra"
+    ]
+  },
+  {
+    "id": 8,
+    "tipo": "Gelo",
+    "friend": [
+      "Dragão",
+      "Voador",
+      "Planta",
+      "Terra"
+    ],
+    "foe": [
+      "Aço",
+      "Fogo",
+      "Gelo",
+      "Água"
+    ]
+  },
+  {
+    "id": 9,
+    "tipo": "Inseto",
+    "friend": [
+      "Planta",
+      "Psíquico",
+      "Sombrio"
+    ],
+    "foe": [
+      "Fada",
+      "Fogo",
+      "Fantasma",
+      "Lutador",
+      "Voador",
+      "Venenoso",
+      "Aço"
+    ]
+  },
+  {
+    "id": 10,
+    "tipo": "Lutador",
+    "friend": [
+      "Gelo",
+      "Normal",
+      "Pedra",
+      "Sombrio",
+      "Aço"
+    ],
+    "foe": [
+      "Fada",
+      "Voador",
+      "Psíquico",
+      "Venenoso",
+      "Inseto"
+    ]
+  },
+  {
+    "id": 11,
+    "tipo": "Normal",
+    "friend": [],
+    "foe": [
+      "Pedra",
+      "Aço",
+      "Fantasma"
+    ]
+  },
+  {
+    "id": 12,
+    "tipo": "Pedra",
+    "friend": [
+      "Fogo",
+      "Gelo",
+      "Inseto",
+      "Voador"
+    ],
+    "foe": [
+      "Aço",
+      "Lutador",
+      "Terra"
+    ]
+  },
+  {
+    "id": 13,
+    "tipo": "Planta",
+    "friend": [
+      "Água",
+      "Terra",
+      "Pedra"
+    ],
+    "foe": [
+      "Inseto",
+      "Dragão",
+      "Fogo",
+      "Planta",
+      "Voador",
+      "Venenoso",
+      "Aço"
+    ]
+  },
+  {
+    "id": 14,
+    "tipo": "Psíquico",
+    "friend": [
+      "Lutador",
+      "Venenoso"
+    ],
+    "foe": [
+      "Aço",
+      "Sombrio",
+      "Psíquico"
+    ]
+  },
+  {
+    "id": 15,
+    "tipo": "Sombrio",
+    "friend": [
+      "Fantasma",
+      "Psíquico"
+    ],
+    "foe": [
+      "Lutador",
+      "Fada",
+      "Sombrio"
+    ]
+  },
+  {
+    "id": 16,
+    "tipo": "Terra",
+    "friend": [
+      "Elétrico",
+      "Fogo",
+      "Pedra",
+      "Venenoso",
+      "Aço"
+    ],
+    "foe": [
+      "Inseto",
+      "Planta",
+      "Gelo"
+    ]
+  },
+  {
+    "id": 17,
+    "tipo": "Venenoso",
+    "friend": [
+      "Planta",
+      "Fada"
+    ],
+    "foe": [
+      "Fantasma",
+      "Pedra",
+      "Venenoso",
+      "Terra"
+    ]
+  },
+  {
+    "id": 18,
+    "tipo": "Voador",
+    "friend": [
+      "Inseto",
+      "Planta",
+      "Lutador"
+    ],
+    "foe": [
+      "Elétrico",
+      "Pedra",
+      "Aço"
+    ]
+  }
+]
