@@ -1,6 +1,21 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
+const FrameDef = styled.div`
+    // max-width: 80%;
+    // max-height: 100%;
+    margin: 0 auto; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    // background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd);
+    background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
+`
+
 const FramePokeEvoGrid = styled.div`
   display: flex;
   justify-content: center;
@@ -75,36 +90,38 @@ function FrameEvolves() {
   }
 
   return (
-    <FramePokeEvoGrid>
-      {evolves.map((item) => (
-        <EvolveCard key={item.id}>
-          <EvoLine>
-            {/* Pokémon inicial */}
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <PokeImgEvo
-                src={`http://localhost:8000/home/${item.pokemon.number}/img`}
-                alt={item.pokemon.name}
-              />
-              <PokeName>{item.pokemon.name}</PokeName>
-            </div>
+    <FrameDef>
+      <FramePokeEvoGrid>
+        {evolves.map((item) => (
+          <EvolveCard key={item.id}>
+            <EvoLine>
+              {/* Pokémon inicial */}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <PokeImgEvo
+                  src={`http://localhost:8000/home/${item.pokemon.number}/img`}
+                  alt={item.pokemon.name}
+                />
+                <PokeName>{item.pokemon.name}</PokeName>
+              </div>
 
-            {/* Evoluções */}
-            {item.evolve.map((ev) => (
-              <span key={ev.number} style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                <Arrow>→</Arrow>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                  <PokeImgEvo
-                    src={`http://localhost:8000/home/${ev.number}/img`}
-                    alt={ev.name}
-                  />
-                  <PokeName>{ev.name}</PokeName>
-                </div>
-              </span>
-            ))}
-          </EvoLine>
-        </EvolveCard>
-      ))}
-    </FramePokeEvoGrid>
+              {/* Evoluções */}
+              {item.evolve.map((ev) => (
+                <span key={ev.number} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                  <Arrow>→</Arrow>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                    <PokeImgEvo
+                      src={`http://localhost:8000/home/${ev.number}/img`}
+                      alt={ev.name}
+                    />
+                    <PokeName>{ev.name}</PokeName>
+                  </div>
+                </span>
+              ))}
+            </EvoLine>
+          </EvolveCard>
+        ))}
+      </FramePokeEvoGrid>
+    </FrameDef>
   );
 }
 export default FrameEvolves;

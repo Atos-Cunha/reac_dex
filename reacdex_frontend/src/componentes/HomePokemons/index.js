@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from "styled-components"; 
 
 const FrameCard = styled.div`
+width: 100%; 
 display: flex;
 flex-wrap: wrap;
 flex-direction: row;
@@ -9,8 +10,9 @@ justify-content: center;
 align-items: center; 
 margin: 0 auto; 
 border-radius: 10px; 
-background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd); 
-width: 100%; 
+
+// background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd); 
+background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
 `;
  
 const PokemonCard = styled.div`
@@ -103,7 +105,7 @@ const spin = keyframes`
 100% { transform: rotate(360deg); }
  `; 
  
- const Spinner = styled.div`
+const Spinner = styled.div`
 border: 6px solid #f3f3f3;
 border-top: 6px solid #3498db;
 border-radius: 50%;

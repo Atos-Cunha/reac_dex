@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useEffect, useState } from 'react';
 import Input from "../Input";
 import { post_fav } from "../../services/fav";
 
 const PesquisaContainer = styled.section`
-  background-image: linear-gradient(90deg, #08416cff 0%, #bde8fbff 100%);
+  // background-image: linear-gradient(90deg, #08416cff 0%, #bde8fbff 100%);
+  background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
   border-radius: 10px;
   color: #FFF;
   text-align: center;
@@ -61,6 +62,19 @@ const PokemonImage = styled.img`
   height: 150px;
 `;
 
+const spin = keyframes`
+0% { transform: rotate(0deg); } 
+100% { transform: rotate(360deg); }
+ `; 
+ 
+const Spinner = styled.div`
+border: 6px solid #f3f3f3;
+border-top: 6px solid #3498db;
+border-radius: 50%;
+width: 60px;
+height: 60px;
+animation: ${spin} 1s linear infinite; margin: 50px auto;
+`; 
 function Pesquisa() {
   const [allPokemons, setAllPokemons] = useState([]); // todos os pokémons
   const [pokemons, setPokemons] = useState([]);       // resultados filtrados
@@ -100,6 +114,8 @@ function Pesquisa() {
     );
     setPokemons(resultadoPesquisa);
   }
+
+  if (loading) return <Spinner />;
 
   return (
     <PesquisaContainer>

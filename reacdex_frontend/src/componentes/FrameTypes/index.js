@@ -1,6 +1,21 @@
 import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
+const FrameDef = styled.div`
+    // max-width: 80%;
+    // max-height: 100%;
+    margin: 0 auto; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    // background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd);
+    background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
+`
+
 const FramePokeImgType = styled.div`
   display: flex;
   flex-direction: row;
@@ -81,17 +96,19 @@ function FrameTypes() {
   if (!types.length) return <p>Nenhum tipo encontrado.</p>;
 
   return (
-    <FramePokeImgType>
-      {types.map((typeObj) => (
-        <Card key={typeObj.name}>
-          <TitleType>{typeObj.name}</TitleType>
-          <PokeImgType
-            src={`http://localhost:8000${typeObj.url}`} // backend devolve /types/xxx.png
-            alt={typeObj.name}
-          />
-        </Card>
-      ))}
-    </FramePokeImgType>
+    <FrameDef>
+      <FramePokeImgType>
+        {types.map((typeObj) => (
+          <Card key={typeObj.name}>
+            <TitleType>{typeObj.name}</TitleType>
+            <PokeImgType
+              src={`http://localhost:8000${typeObj.url}`} // backend devolve /types/xxx.png
+              alt={typeObj.name}
+            />
+          </Card>
+        ))}
+      </FramePokeImgType>
+    </FrameDef>
   );
 }
 
