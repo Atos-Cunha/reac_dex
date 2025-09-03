@@ -4,71 +4,75 @@ import Input from "../Input";
 import { post_fav } from "../../services/fav";
 
 const PesquisaContainer = styled.section`
-  // background-image: linear-gradient(90deg, #08416cff 0%, #bde8fbff 100%);
-  // background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
-  background-color: #ffffff24;
-  color: #FFF;
-  text-align: center;
-  padding: 40px 0;
+  // background: linear-gradient(150deg,  #dee2e8ff 0%,  #3a6ea5 25%,  #002f52 75%,  #002f52 100%);  
+  // background-color: #ffffff24;
+  color: #000;
   width: 80%;
-  margin: auto;
+  padding: 40px 0;
+  margin: auto;  
+  text-align: center;
+  border-radius: 20px;
+  // border: 1px solid #fff;
+  // border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
-  // border : 2px solid #000;
-  border-radius: 20px;
 `;
 
 const Titulo = styled.h2`
-  color: #FFF;
-  font-size: 36px;
+  color: #000;
+  font-size: 35px;
   text-align: center;
   width: 100%;
 `;
 
 const ResultadosGrid = styled.div`
+  color: #000;  
+  width: 80%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
   max-width: 1000px;
   margin: 20px auto;
   gap: 20px;
+  border-radius: 20px;
 `;
 
 const Resultado = styled.div`
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  border: #fff;
+  border-radius: 20px;
   text-align: center;
   cursor: pointer;
   transition: 0.2s;
-
   p {
     margin-top: 8px;
-    font-size: 14px;
-    color: #fff;
+    font-size: 15px;
+    color: #000;
   }
 
   img {
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     object-fit: contain;
   }
   
   &:hover {
-    border: 1px solid white;
-    transform: scale(1.05);
+    border: 1px solid #fff;
+    transform: scale(1.09);
   }
 `;
 
 const PokemonImage = styled.img`
   width: 200px;
-  height: 150px;
+  height: 200px;
 `;
 
 const spin = keyframes`
 0% { transform: rotate(0deg); } 
 100% { transform: rotate(360deg); }
- `; 
- 
+ `;
+
 const Spinner = styled.div`
 border: 6px solid #f3f3f3;
 border-top: 6px solid #3498db;
@@ -76,7 +80,7 @@ border-radius: 50%;
 width: 60px;
 height: 60px;
 animation: ${spin} 1s linear infinite; margin: 50px auto;
-`; 
+`;
 function Pesquisa() {
   const [allPokemons, setAllPokemons] = useState([]); // todos os pokémons
   const [pokemons, setPokemons] = useState([]);       // resultados filtrados

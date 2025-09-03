@@ -13,10 +13,11 @@ const FrameDef = styled.div`
 const FrameRow = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 5px;
   background-color: #ffffff3c;
   padding: 10px;
   border-radius: 20px;
+  border: 1px solid #fff;
 `;
 
 const Column = styled.div`
@@ -31,15 +32,20 @@ const SectionTitle = styled.h2`
   font-size: 16px;
   letter-spacing: 1px;
   margin: 8px 0 4px;
+  // text-shadow: 2px 2px 0 #000,
+  //              -2px 2px 0 #000,
+  //              -2px -2px 0 #000,
+  //              2px -2px 0 #000;
 `;
 
 const Card = styled.div`
-  background-color: #0000002f;
+  background-color: #ffffff3c;
   width: 100px;
   border-radius: 10px;
   text-align: center;
   padding: 6px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  // border: 2px solid #000;
 `;
 
 const PokeImgType = styled.img`
@@ -50,7 +56,7 @@ const PokeImgType = styled.img`
 
 const TitleType = styled.h3`
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 15px;
   margin: 6px 0 0;
   color: #fff;
 `;
@@ -63,7 +69,7 @@ const spin = keyframes`
 const Spinner = styled.div`
   border: 6px solid #f3f3f3;
   border-top: 6px solid #3498db;
-  border-radius: 50%;
+  border-radius: 20px;
   width: 60px;
   height: 60px;
   animation: ${spin} 1s linear infinite;

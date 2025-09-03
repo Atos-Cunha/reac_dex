@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import Logo from '../Logo';
 import OpcoesHeader from '../OpcoesHeader';
+import OpcoesHeaderDark from '../OpcoesHeaderDark';
 import IconesHeader from '../IconesHeader';
+import IconesHeaderDark from '../IconesHeaderDark';
 import { Link } from 'react-router-dom';
 
 const HeaderContainer = styled.header`
@@ -15,9 +17,19 @@ function Header() {
     <HeaderContainer>
       <Link to="/">
         <Logo />
+        {/* <LogoDark /> */}
       </Link>
       <OpcoesHeader />
+      
+      {/* <OpcoesHeaderDark /> */}
+      
+      {/* <OpcoesHeaderDark /> */}
+
       <IconesHeader />
+
+
+      {/* <IconesHeaderDark /> */}
+
     </HeaderContainer>
   )
 }

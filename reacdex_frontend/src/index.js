@@ -7,8 +7,10 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import Header from './componentes/Header';
+import HeaderDark from './componentes/IconesHeaderDark';
 import Home from './routes/Home';
 import Evolves from './routes/Evolves';
+// import EvolvesDark from './routes/EvolvesDark';
 import Types from './routes/Types.js';
 import Fav from './routes/Fav';
 
@@ -42,6 +44,7 @@ const router = createBrowserRouter(
       element: (
         <>
           <Header />
+          {/* <HeaderDark /> */}
           <Home />
         </>
       ),

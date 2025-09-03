@@ -1,18 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled, { keyframes } from "styled-components";
 
-const moveBackground = keyframes`
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-`;
-
 const Card = styled.div`
   height: auto;
   margin: 0 auto; 
@@ -22,10 +10,6 @@ const Card = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-
-  background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd);
-  background-size: 400% 400%;
-  animation: ${moveBackground} 10s ease infinite;
 `;
 
 const PokemonCard = styled.div`

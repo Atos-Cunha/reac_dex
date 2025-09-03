@@ -4,24 +4,27 @@ import { GenTitle } from '../GenTitle';
 import HomePokemons from '../HomePokemons';
 
 const FramePokeCardsContainer = styled.section`
-    display: flex;
-    flex-direction: column;
-    max-width: 80%;
-    max-height: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin: 0 auto; 
-    padding-top: 20px;
-    padding-bottom: 20px;
+// background: linear-gradient(150deg,  #dee2e8ff 0%,  #3a6ea5 25%,  #002f52 75%,  #002f52 100%);
+color: #000;
+  text-align: center;
+  //  padding: 40px 0;
+  width: 80%;
+  margin: auto;
+  border-radius: 20px;
+  // border : 0.5px solid #000;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
 `;
 
 function FrameHome() {
-    return (
-        <FramePokeCardsContainer>
-            <GenTitle>Kanto - First Gen</GenTitle>
-            <HomePokemons />
-        </FramePokeCardsContainer>
-    );
+  return (
+    <FramePokeCardsContainer>
+      <GenTitle>Kanto - First Gen</GenTitle>
+      <HomePokemons />
+    </FramePokeCardsContainer>
+  );
 }
 
 export default FrameHome;

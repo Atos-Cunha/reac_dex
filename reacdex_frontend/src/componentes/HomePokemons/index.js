@@ -4,9 +4,11 @@ import styled, { keyframes } from "styled-components";
 const FrameCard = styled.div`
 display: flex;
 flex-wrap: wrap;
-justify-content: space-between;
+justify-content: center;
 width: 100%; 
 margin-top: 20px;
+
+color: #000;
 `;
 
 const PokemonCard = styled.div`
@@ -18,7 +20,9 @@ min-width: 750px;
 // padding: 10px; 
 margin: 5px; 
 border-radius: 20px;
-background-color: #ffffff3c;
+border: 1px solid #fff;
+// background-color: #ffffff3c;
+background-color: rgba(255, 255, 255, 0.2);
 box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
 `;
 
@@ -39,8 +43,7 @@ font-size: 30px;
 font-family: 'Montserrat','Helvetica Neue',Arial,sans-serif; 
 font-weight: 700; 
 line-height: 1.5; 
-letter-spacing: 0.5px; 
-color: #fff; 
+letter-spacing: 0.5px;
 `;
 
 const PokeName = styled.p`
@@ -48,8 +51,7 @@ font-size: 30px;
 font-family: 'Montserrat','Helvetica Neue',Arial,sans-serif; 
 font-weight: 700; 
 line-height: 1.5; 
-letter-spacing: 0.5px; 
-color: #fff; 
+letter-spacing: 0.5px;
 `;
 
 const PokemonImageTypeFrame = styled.div`
@@ -57,10 +59,7 @@ display: flex;
 flex-direction: row; 
 justify-content: center; 
 align-items: center; 
-flex-wrap: wrap; 
-gap: 6px; 
-padding: 15px; 
-margin: 5px; 
+flex-wrap: wrap;
 `;
 
 const PokemonImageType = styled.img`
@@ -79,6 +78,7 @@ align-itens: center;
 align-items: center; 
 flex-wrap: wrap; 
 `;
+
 const EvolveCard = styled.div`
 display: flex; 
 flex-direction: row;
