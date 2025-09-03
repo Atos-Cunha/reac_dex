@@ -2,42 +2,44 @@ import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 
 const FrameDef = styled.div`
-    // max-width: 80%;
-    // max-height: 100%;
-    margin: 0 auto; 
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 10%;
-    margin-right: 10%;
-
-    // background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd);
-    background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
-`
-
-const FramePokeImgType = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px;
-  padding: 15px;
-  margin: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 16px;
+`;
+
+const FrameRow = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  background-color: #ffffff3c;
+  padding: 10px;
+  border-radius: 20px;
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+
+const SectionTitle = styled.h2`
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin: 8px 0 4px;
 `;
 
 const Card = styled.div`
-  height: auto;
-  margin: 0 auto;
+  background-color: #0000002f;
+  width: 100px;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  background: linear-gradient(-45deg, #e3f5fd, #c9e9fa, #e3f5fd);
-  padding: 15px;
+  text-align: center;
+  padding: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 `;
 
 const PokeImgType = styled.img`
@@ -48,8 +50,9 @@ const PokeImgType = styled.img`
 
 const TitleType = styled.h3`
   text-transform: uppercase;
-  font-size: 18px;
-  margin: 10px 0;
+  font-size: 13px;
+  margin: 6px 0 0;
+  color: #fff;
 `;
 
 const spin = keyframes`
@@ -67,23 +70,84 @@ const Spinner = styled.div`
   margin: 50px auto;
 `;
 
+function buildImgSrc(typeName) {
+  return `http://localhost:8000/types/${typeName}.png`;
+}
+
+/** Normaliza cada type em um bloco com { type, advantage[], weak[] } */
+function normalizeTypesFf(data) {
+  const result = [];
+
+  data.forEach((obj) => {
+    Object.entries(obj).forEach(([typeName, details]) => {
+      result.push({
+        type: { name: typeName, url: buildImgSrc(typeName) },
+        advantage: (details.advantage || []).map((a) => ({
+          name: a,
+          url: buildImgSrc(a),
+        })),
+        weak: (details.foes || []).map((f) => ({
+          name: f,
+          url: buildImgSrc(f),
+        })),
+      });
+    });
+  });
+
+  return result;
+}
+
 function FrameTypes() {
-  const [types, setTypes] = useState([]); // ⬅️ começa como array
+  const [blocks, setBlocks] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchTypes() {
       try {
-        const res = await fetch("http://localhost:8000/types");
-        if (!res.ok) throw new Error("Erro ao buscar tipos");
-        const data = await res.json();
-        console.log("Resposta do backend /types:", data);
+        // 1) Buscar lista de tipos (com imagens corretas)
+        const resTypes = await fetch("http://localhost:8000/types");
+        if (!resTypes.ok) throw new Error("Erro ao buscar /types");
+        const typesData = await resTypes.json();
 
-        // data já vem no formato [{ name, url }]
-        setTypes(data);
+        // Monta dicionário { Fire: "/types/fire.png", ... }
+        const typeMap = {};
+        typesData.forEach((t) => {
+          typeMap[t.name.toLowerCase()] = `http://localhost:8000${t.url}`;
+        });
+
+        // 2) Buscar relações advantage/foes
+        const resFf = await fetch("http://localhost:8000/typesFf");
+        if (!resFf.ok) throw new Error("Erro ao buscar /typesFf");
+        const ffData = await resFf.json();
+
+        // 3) Normalizar blocos
+        const normalized = [];
+        ffData.forEach((obj) => {
+          Object.entries(obj).forEach(([typeName, details]) => {
+            const typeKey = typeName.toLowerCase();
+
+            // Só monta se o tipo tiver imagem no /types
+            if (!typeMap[typeKey]) return;
+
+            normalized.push({
+              type: { name: typeName, url: typeMap[typeKey] },
+              advantage: (details.advantage || []).map((a) => ({
+                name: a,
+                url: typeMap[a.toLowerCase()] || "",
+              })),
+              weak: (details.foes || []).map((f) => ({
+                name: f,
+                url: typeMap[f.toLowerCase()] || "",
+              })),
+            });
+          });
+        });
+
+        console.log("✅ Normalizado com imagens:", normalized);
+        setBlocks(normalized);
       } catch (err) {
-        console.error("Erro no fetch:", err.message);
-        setTypes([]);
+        console.error("❌ Erro no fetch:", err);
+        setBlocks([]);
       } finally {
         setLoading(false);
       }
@@ -92,22 +156,49 @@ function FrameTypes() {
     fetchTypes();
   }, []);
 
+
   if (loading) return <Spinner />;
-  if (!types.length) return <p>Nenhum tipo encontrado.</p>;
+
+  if (!blocks.length) {
+    return <p>Nenhum tipo encontrado.</p>;
+  }
 
   return (
     <FrameDef>
-      <FramePokeImgType>
-        {types.map((typeObj) => (
-          <Card key={typeObj.name}>
-            <TitleType>{typeObj.name}</TitleType>
-            <PokeImgType
-              src={`http://localhost:8000${typeObj.url}`} // backend devolve /types/xxx.png
-              alt={typeObj.name}
-            />
-          </Card>
-        ))}
-      </FramePokeImgType>
+      {blocks.map((block, idx) => (
+        <FrameRow key={`block-${block.type.name}-${idx}`}>
+          {/* TYPE */}
+          <Column>
+            <SectionTitle>TYPE</SectionTitle>
+            <Card>
+              <PokeImgType src={block.type.url} alt={block.type.name} />
+              <TitleType>{block.type.name}</TitleType>
+            </Card>
+          </Column>
+
+          {/* ADVANTAGE */}
+          <Column>
+            <SectionTitle>ADVANTAGE</SectionTitle>
+            {block.advantage.map((t, i) => (
+              <Card key={`adv-${t.name}-${i}`}>
+                <PokeImgType src={t.url} alt={t.name} />
+                <TitleType>{t.name}</TitleType>
+              </Card>
+            ))}
+          </Column>
+
+          {/* WEAK */}
+          <Column>
+            <SectionTitle>WEAK</SectionTitle>
+            {block.weak.map((t, i) => (
+              <Card key={`weak-${t.name}-${i}`}>
+                <PokeImgType src={t.url} alt={t.name} />
+                <TitleType>{t.name}</TitleType>
+              </Card>
+            ))}
+          </Column>
+        </FrameRow>
+      ))}
     </FrameDef>
   );
 }

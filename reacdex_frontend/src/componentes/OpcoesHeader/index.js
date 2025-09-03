@@ -12,6 +12,13 @@ const Opcao = styled.li`
     padding: 0 5px;
     cursor: pointer;
     min-width: 120px;
+
+
+    font-family: 'Montserrat','Helvetica Neue',Arial,sans-serif; 
+    font-weight: 700; 
+    line-height: 1.5; 
+    letter-spacing: 0.5px; 
+
 `;
 
 const Opcoes = styled.ul`

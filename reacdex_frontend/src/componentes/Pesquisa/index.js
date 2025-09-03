@@ -5,8 +5,8 @@ import { post_fav } from "../../services/fav";
 
 const PesquisaContainer = styled.section`
   // background-image: linear-gradient(90deg, #08416cff 0%, #bde8fbff 100%);
-  background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
-  border-radius: 10px;
+  // background-image: linear-gradient(90deg,#002F52 35%,#326589 165%);
+  background-color: #ffffff24;
   color: #FFF;
   text-align: center;
   padding: 40px 0;
@@ -14,6 +14,8 @@ const PesquisaContainer = styled.section`
   margin: auto;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
+  // border : 2px solid #000;
+  border-radius: 20px;
 `;
 
 const Titulo = styled.h2`
