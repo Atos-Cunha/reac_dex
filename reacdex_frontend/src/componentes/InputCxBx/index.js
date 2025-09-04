@@ -1,31 +1,34 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const InputCxBx = styled.input.attrs({ type: "checkbox" })`
   appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
   cursor: pointer;
   width: 20px;
   height: 20px;
-
   border: 2px solid #fff;
   border-radius: 50%;
   display: inline-block;
-  position: relative;
   background: #ffffff4c;
 
-  transition: 
+  transition:
     background-color 0.5s ease, 
-    border 1s ease, 
-    border-radius 1s ease, 
+    border 1s ease,
     transform 0.3s ease;
 
   &:checked {
-    appearance: none;
-    border-radius: 50%;
+    height: 20px;
+    width: 20px;
     background-color: #000;
-    border: 5px solid;
-    border-image: linear-gradient(170deg, #f80606ff 50%, #fff 50%);
-    // border-color: linear-gradient(170deg, #f80606ff 50%, #fff 50%);
-    border-image-slice: 1;
+    border-radius: 50%;
+    border-block-style: solid;
+    border-block-width: 6px;
+    border-left: none;
+    border-right: none;
+    border-top-color: red;
+    border-bottom-collor: white;
   }
 `;
 
