@@ -1,33 +1,64 @@
 import styled, { keyframes } from "styled-components";
 import { useEffect, useState } from 'react';
 import Input from "../Input";
+import InputCxBx from "../InputCxBx";
 import { post_fav } from "../../services/fav";
 
+const FrameInput = styled.div`
+  // border: 1px solid #fff;
+  // border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // gap: 10px;
+  // padding: 10px;
+
+`;
+
 const PesquisaContainer = styled.section`
-  // background: linear-gradient(150deg,  #dee2e8ff 0%,  #3a6ea5 25%,  #002f52 75%,  #002f52 100%);  
-  // background-color: #ffffff24;
-  color: #000;
+  color: #fff;
   width: 80%;
   padding: 40px 0;
   margin: auto;  
   text-align: center;
   border-radius: 20px;
-  // border: 1px solid #fff;
-  // border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(6px);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
+  border: 1px solid #fff;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+const CheckboxContainer = styled.div`
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  label {
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
 `;
 
 const Titulo = styled.h2`
-  color: #000;
+  color: #fff;
   font-size: 35px;
   text-align: center;
   width: 100%;
 `;
 
 const ResultadosGrid = styled.div`
-  color: #000;  
   width: 80%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
@@ -40,15 +71,15 @@ const ResultadosGrid = styled.div`
 const Resultado = styled.div`
   background: rgba(255, 255, 255, 0.2);
   padding: 5px;
-  border: #fff;
   border-radius: 20px;
   text-align: center;
   cursor: pointer;
   transition: 0.2s;
+  
   p {
     margin-top: 8px;
     font-size: 15px;
-    color: #000;
+    color: #fff;
   }
 
   img {
@@ -69,21 +100,24 @@ const PokemonImage = styled.img`
 `;
 
 const spin = keyframes`
-0% { transform: rotate(0deg); } 
-100% { transform: rotate(360deg); }
- `;
+  0% { transform: rotate(0deg); } 
+  100% { transform: rotate(360deg); }
+`;
 
 const Spinner = styled.div`
-border: 6px solid #f3f3f3;
-border-top: 6px solid #3498db;
-border-radius: 50%;
-width: 60px;
-height: 60px;
-animation: ${spin} 1s linear infinite; margin: 50px auto;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: ${spin} 1s linear infinite; 
+  margin: 50px auto;
 `;
+
 function Pesquisa() {
-  const [allPokemons, setAllPokemons] = useState([]); // todos os pokémons
-  const [pokemons, setPokemons] = useState([]);       // resultados filtrados
+  const [allPokemons, setAllPokemons] = useState([]);
+  const [pokemons, setPokemons] = useState([]);
+  const [evolves, setEvolves] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -92,7 +126,7 @@ function Pesquisa() {
         const response = await fetch("http://localhost:8000/home");
         if (!response.ok) throw new Error("Erro ao buscar pokemons");
         const data = await response.json();
-        setAllPokemons(data); // guarda todos os pokémons, mas não mostra ainda
+        setAllPokemons(data);
       } catch (err) {
         console.error("Falha no fetch:", err.message);
         setAllPokemons([]);
@@ -111,13 +145,19 @@ function Pesquisa() {
   function handleSearch(evento) {
     const textoDigitado = evento.target.value;
     if (textoDigitado.trim() === "") {
-      setPokemons([]); // se o campo estiver vazio, não mostra nada
+      setPokemons([]);
       return;
     }
 
-    const resultadoPesquisa = allPokemons.filter(pokemon =>
+    let resultadoPesquisa = allPokemons.filter(pokemon =>
       pokemon.name?.toLowerCase().includes(textoDigitado.toLowerCase())
     );
+
+    // se checkbox Evolves estiver marcado, filtra só os que evoluem
+    if (evolves) {
+      resultadoPesquisa = resultadoPesquisa.filter(pokemon => pokemon.evolves);
+    }
+
     setPokemons(resultadoPesquisa);
   }
 
@@ -126,10 +166,25 @@ function Pesquisa() {
   return (
     <PesquisaContainer>
       <Titulo>Pesquise por um pokemon</Titulo>
-      <Input
-        placeholder="Pesquise por nome"
-        onChange={handleSearch} // melhor usar onChange do que onBlur
-      />
+      <FrameInput>
+        <Input
+          placeholder="Pesquise por nome"
+          onChange={handleSearch}
+        />
+
+        <CheckboxContainer>
+          <InputCxBx id="evolves" checked={evolves} onChange={(e) => setEvolves(e.target.checked)} />
+          <label htmlFor="evolves">Evolves</label>
+
+          {/* <InputCxBx
+            type="checkbox"
+            id="evolves"
+            checked={evolves}
+            onChange={(e) => setEvolves(e.target.checked)}
+          /> */}
+          {/* <label htmlFor="evolves">Evolves</label> */}
+        </CheckboxContainer>
+      </FrameInput>
 
       {pokemons.length > 0 && (
         <ResultadosGrid>

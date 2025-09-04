@@ -7,8 +7,7 @@ flex-wrap: wrap;
 justify-content: center;
 width: 100%; 
 margin-top: 20px;
-
-color: #000;
+color: #fff;
 `;
 
 const PokemonCard = styled.div`
@@ -17,11 +16,9 @@ flex-direction: row;
 justify-content: center; 
 align-items: center; 
 min-width: 750px;
-// padding: 10px; 
 margin: 5px; 
 border-radius: 20px;
 border: 1px solid #fff;
-// background-color: #ffffff3c;
 background-color: rgba(255, 255, 255, 0.2);
 box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
 `;

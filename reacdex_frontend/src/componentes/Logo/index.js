@@ -12,8 +12,17 @@ const LogoContainer = styled.div`
 
 const LogoName = styled.p`
     font-size: 25px;
-    color: red;
     text-align: center;
+`;
+
+const Reac = styled.span`
+    color: red;
+    font-weight: bold;
+`;
+
+const Dex = styled.span`
+    color: #000;
+    font-weight: bold;
 `;
 
 const LogoImage = styled.img`
@@ -23,9 +32,11 @@ const LogoImage = styled.img`
 function Logo() {
     return (
         <LogoContainer>
-            <LogoName><strong>Reac</strong>Dex</LogoName>
+            <LogoName>
+                <Reac>Reac</Reac>
+                <Dex>Dex</Dex>
+            </LogoName>
             <LogoImage src={logo} alt='logo'></LogoImage>
-
         </LogoContainer>
     )
 }

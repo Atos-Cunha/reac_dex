@@ -7,17 +7,18 @@ const FrameDef = styled.div`
   gap: 20px;
   margin-left: 10%;
   margin-right: 10%;
-  padding: 16px;
+  padding: 5px;
 `;
-
 const FrameRow = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 5px;
+  // gap: 10px;
   background-color: #ffffff3c;
   padding: 10px;
   border-radius: 20px;
-  border: 1px solid #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 `;
 
 const Column = styled.div`
@@ -28,8 +29,9 @@ const Column = styled.div`
 `;
 
 const SectionTitle = styled.h2`
+  font-family: 'Montserrat','Helvetica Neue',Arial,sans-serif;
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: 1px;
   margin: 8px 0 4px;
   // text-shadow: 2px 2px 0 #000,
@@ -45,7 +47,7 @@ const Card = styled.div`
   text-align: center;
   padding: 6px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  // border: 2px solid #000;
+  border: 1px solid #fff;
 `;
 
 const PokeImgType = styled.img`
@@ -55,6 +57,7 @@ const PokeImgType = styled.img`
 `;
 
 const TitleType = styled.h3`
+  font-family: 'Montserrat','Helvetica Neue',Arial,sans-serif;
   text-transform: uppercase;
   font-size: 15px;
   margin: 6px 0 0;
