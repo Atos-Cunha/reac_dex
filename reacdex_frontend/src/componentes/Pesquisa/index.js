@@ -129,6 +129,23 @@ function Pesquisa() {
     } fetchPokemons();
   }, []);
 
+  useEffect(() => {
+    async function fetchEvolves() {
+      try {
+        const response = await fetch("http://localhost:8000/evolves");
+        if (!response.ok) throw new Error("Erro ao buscar evoluções");
+
+        const data = await response.json();
+        setEvolves(data.filter(item => item.evolve && item.evolve.length > 0));
+      } catch (err) {
+        console.error("Falha no fetch /evolves:", err.message);
+        setEvolves([]);
+      } finally {
+        setLoading(false);
+      }
+    } fetchEvolves();
+  }, []);
+
   async function insert_fav(id) {
     await post_fav(id);
     alert(`Item de id:${id} inserido!`);
@@ -159,11 +176,14 @@ function Pesquisa() {
         pokemons.length > 0 && (
           <ResultadosGrid>
             {pokemons.map(pokemon => (
-              <Resultado key={pokemon.id} onClick={() => insert_fav(pokemon.id)}>
+              <Resultado
+                key={pokemon.id}
+                onClick={() => insert_fav(pokemon.id)}
+              >
                 <PokemonImage
                   src={pokemon.image || `http://localhost:8000/home/${pokemon.id}/img`}
-                alt={pokemon.name} 
-              />
+                  alt={pokemon.name}
+                />
                 <p>{pokemon.name}</p>
               </Resultado>))}
           </ResultadosGrid>
