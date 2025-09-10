@@ -22,6 +22,7 @@ const FrameInput = styled.div``;
 const PesquisaContainer = styled.section`
   color: #fff;
   width: 80%;
+  height: 100%;
   padding: 40px 0;
   margin: auto;
   text-align: center;
@@ -29,7 +30,8 @@ const PesquisaContainer = styled.section`
   backdrop-filter: blur(6px);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
-  border: 1px solid #fff;
+  // border: 1px solid #fff;
+  border: 1px solid #000;
   display: flex;
   flex-direction: column;
 `;
@@ -61,21 +63,32 @@ const Titulo = styled.h2`
 `;
 
 const ResultadosGrid = styled.div`
-  width: 80%;
+// border: 2px solid #000;
+
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   max-width: 1000px;
+  // height: auto;
   margin: 20px auto;
   gap: 20px;
   border-radius: 20px;
+  width: 1000px;
+  height: 200px;
 `;
 
 const Resultado = styled.div`
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10px;
-  border-radius: 20px;
-  text-align: center;
-  transition: 0.3s ease;
+border: 2px solid #000;
+
+display: flex; 
+justify-content: space-around;
+align-items: center;
+align-itens: center;
+width: 80%;
+background: rgba(255, 255, 255, 0.2);
+padding: 10px;
+border-radius: 20px;
+text-align: center;
+transition: 0.3s ease;
 
   p {
     margin-top: 8px;
@@ -200,21 +213,21 @@ function Pesquisa() {
   // 🔹 Quando Evolves está ativo → agrupa resultados por cadeia evolutiva
   const resultados = showEvolves
     ? [
-        ...new Map(
-          pokemons
-            .map((pokemon) => {
-              const evolucao = evolvesList.find(
-                (linha) =>
-                  linha.pokemon?.number === formatNumber(pokemon.id) ||
-                  linha.evolve?.some(
-                    (ev) => ev.number === formatNumber(pokemon.id)
-                  )
-              );
-              return evolucao ? [evolucao.pokemon.number, evolucao] : null;
-            })
-            .filter(Boolean)
-        ).values(),
-      ]
+      ...new Map(
+        pokemons
+          .map((pokemon) => {
+            const evolucao = evolvesList.find(
+              (linha) =>
+                linha.pokemon?.number === formatNumber(pokemon.id) ||
+                linha.evolve?.some(
+                  (ev) => ev.number === formatNumber(pokemon.id)
+                )
+            );
+            return evolucao ? [evolucao.pokemon.number, evolucao] : null;
+          })
+          .filter(Boolean)
+      ).values(),
+    ]
     : pokemons;
 
   return (
@@ -251,7 +264,7 @@ function Pesquisa() {
                         src={`http://localhost:8000/home/${poke.number}/img`}
                         alt={poke.name}
                       />
-                      <p>{poke.name}</p>
+                      <p>{poke.name.toUpperCase()}</p>
                     </div>
                   ))}
                 </Resultado>
@@ -275,7 +288,7 @@ function Pesquisa() {
                   src={`http://localhost:8000/home/${formatNumber(item.id)}/img`}
                   alt={item.name}
                 />
-                <p>{item.name}</p>
+                <p>{item.name.toUpperCase()}</p>
               </Resultado>
             );
           })}
