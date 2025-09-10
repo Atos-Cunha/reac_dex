@@ -188,21 +188,34 @@ function Pesquisa() {
       return;
     }
 
-    let resultado = [];
-
-    // 1️⃣ Filtra pelo nome diretamente
     const encontrados = allPokemons.filter((p) =>
       p.name?.toLowerCase().includes(textoDigitado)
     );
 
-    if (encontrados.length > 0) {
-      resultado = encontrados;
-    }
-
-    setPokemons(resultado);
+    setPokemons(encontrados);
   }
 
   if (loading) return <Spinner />;
+
+  // 🔹 Quando Evolves está ativo → agrupa resultados por cadeia evolutiva
+  const resultados = showEvolves
+    ? [
+        ...new Map(
+          pokemons
+            .map((pokemon) => {
+              const evolucao = evolvesList.find(
+                (linha) =>
+                  linha.pokemon?.number === formatNumber(pokemon.id) ||
+                  linha.evolve?.some(
+                    (ev) => ev.number === formatNumber(pokemon.id)
+                  )
+              );
+              return evolucao ? [evolucao.pokemon.number, evolucao] : null;
+            })
+            .filter(Boolean)
+        ).values(),
+      ]
+    : pokemons;
 
   return (
     <PesquisaContainer>
@@ -221,45 +234,48 @@ function Pesquisa() {
         </CheckboxContainer>
       </FrameInput>
 
-      {pokemons.length > 0 && (
+      {resultados.length > 0 && (
         <ResultadosGrid>
-          {pokemons.map((pokemon) => {
+          {resultados.map((item) => {
+            // 🔹 Se showEvolves está ativo, item é cadeia de evolução
+            if (showEvolves) {
+              return (
+                <Resultado
+                  key={item.pokemon.number}
+                  hasEvolves
+                  onClick={() => insert_fav(item.pokemon.number)}
+                >
+                  {[item.pokemon, ...(item.evolve || [])].map((poke) => (
+                    <div key={poke.number}>
+                      <PokemonImage
+                        src={`http://localhost:8000/home/${poke.number}/img`}
+                        alt={poke.name}
+                      />
+                      <p>{poke.name}</p>
+                    </div>
+                  ))}
+                </Resultado>
+              );
+            }
+
+            // 🔹 Caso normal (sem evoluções agrupadas)
             const evolucao = evolvesList.find(
               (linha) =>
-                linha.pokemon?.number === formatNumber(pokemon.id) ||
-                linha.evolve?.some((ev) => ev.number === formatNumber(pokemon.id))
+                linha.pokemon?.number === formatNumber(item.id) ||
+                linha.evolve?.some((ev) => ev.number === formatNumber(item.id))
             );
 
             return (
               <Resultado
-                key={pokemon.id}
+                key={item.id}
                 hasEvolves={!!evolucao}
-                onClick={() => insert_fav(pokemon.id)}
+                onClick={() => insert_fav(item.id)}
               >
                 <PokemonImage
-                  src={`http://localhost:8000/home/${formatNumber(
-                    pokemon.id
-                  )}/img`}
-                  alt={pokemon.name}
+                  src={`http://localhost:8000/home/${formatNumber(item.id)}/img`}
+                  alt={item.name}
                 />
-                <p>{pokemon.name}</p>
-
-                {/* 🔹 Se checkbox marcado, mostra evoluções */}
-                {showEvolves && evolucao && (
-                  <EvolvesContainer>
-                    {[evolucao.pokemon, ...(evolucao.evolve || [])].map(
-                      (poke) => (
-                        <div key={poke.number}>
-                          <PokemonImage
-                            src={`http://localhost:8000/home/${poke.number}/img`}
-                            alt={poke.name}
-                          />
-                          <p>{poke.name}</p>
-                        </div>
-                      )
-                    )}
-                  </EvolvesContainer>
-                )}
+                <p>{item.name}</p>
               </Resultado>
             );
           })}
