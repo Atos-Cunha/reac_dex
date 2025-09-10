@@ -9,6 +9,7 @@ const FrameDef = styled.div`
   margin-right: 10%;
   padding: 5px;
 `;
+
 const FrameRow = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -12,11 +12,6 @@ const expandCard = keyframes`
   100% { transform: scale(1.05); box-shadow: 0px 4px 12px rgba(0,0,0,0.25); }
 `;
 
-const fadeIn = keyframes`
-  0% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
-`;
-
 const FrameInput = styled.div``;
 
 const PesquisaContainer = styled.section`
@@ -67,12 +62,13 @@ const ResultadosGrid = styled.div`
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  min-width: 500px;
   max-width: 1000px;
   // height: auto;
   margin: 20px auto;
   gap: 20px;
   border-radius: 20px;
-  width: 1000px;
+  width: 80%;
   // height: 200px;
   height: auto;
 `;
@@ -80,15 +76,14 @@ const ResultadosGrid = styled.div`
 const Resultado = styled.div`
 // border: 2px solid #000;
 
-display: flex; 
+background: rgba(255, 255, 255, 0.2);
+display: flex;
+flex-direction: column;
 justify-content: space-around;
 align-items: center;
-align-itens: center;
-width-min: 80%;
-// height: 100%;
+max-width: 80%;
 height: auto;
-background: rgba(255, 255, 255, 0.2);
-padding: 10px;
+padding: 20px;
 border-radius: 20px;
 text-align: center;
 transition: 0.3s ease;
@@ -114,20 +109,6 @@ transition: 0.3s ease;
     css`
       animation: ${expandCard} 0.6s ease forwards;
     `}
-`;
-
-const EvolvesContainer = styled.div`
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  animation: ${fadeIn} 0.5s ease forwards;
-
-  p {
-    font-size: 14px;
-    margin-top: 5px;
-  }
 `;
 
 const PokemonImage = styled.img`
