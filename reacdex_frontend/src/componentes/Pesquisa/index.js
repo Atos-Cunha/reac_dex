@@ -30,8 +30,8 @@ const PesquisaContainer = styled.section`
   backdrop-filter: blur(6px);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
-  // border: 1px solid #fff;
-  border: 1px solid #000;
+  border: 1px solid #fff;
+  // border: 1px solid #000;
   display: flex;
   flex-direction: column;
 `;
@@ -73,17 +73,20 @@ const ResultadosGrid = styled.div`
   gap: 20px;
   border-radius: 20px;
   width: 1000px;
-  height: 200px;
+  // height: 200px;
+  height: auto;
 `;
 
 const Resultado = styled.div`
-border: 2px solid #000;
+// border: 2px solid #000;
 
 display: flex; 
 justify-content: space-around;
 align-items: center;
 align-itens: center;
-width: 80%;
+width-min: 80%;
+// height: 100%;
+height: auto;
 background: rgba(255, 255, 255, 0.2);
 padding: 10px;
 border-radius: 20px;
