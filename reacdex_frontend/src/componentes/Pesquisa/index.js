@@ -26,7 +26,6 @@ const PesquisaContainer = styled.section`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
   border: 1px solid #fff;
-  // border: 1px solid #000;
   display: flex;
   flex-direction: column;
 `;
@@ -58,35 +57,30 @@ const Titulo = styled.h2`
 `;
 
 const ResultadosGrid = styled.div`
-// border: 2px solid #000;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   min-width: 500px;
   max-width: 1000px;
-  // height: auto;
   margin: 20px auto;
   gap: 20px;
   border-radius: 20px;
   width: 80%;
-  // height: 200px;
   height: auto;
 `;
 
 const Resultado = styled.div`
-// border: 2px solid #000;
-
-background: rgba(255, 255, 255, 0.2);
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-max-width: 80%;
-height: auto;
-padding: 20px;
-border-radius: 20px;
-text-align: center;
-transition: 0.3s ease;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 90%;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  transition: 0.3s ease;
 
   p {
     margin-top: 8px;
@@ -114,6 +108,18 @@ transition: 0.3s ease;
 const PokemonImage = styled.img`
   width: 100px;
   height: 100px;
+`;
+
+const EvolucaoRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  // width: 80%;
+`;
+
+const Arrow = styled.span`
+  font-size: 35px;
+  color: #fff;
 `;
 
 const spin = keyframes`
@@ -197,21 +203,21 @@ function Pesquisa() {
   // 🔹 Quando Evolves está ativo → agrupa resultados por cadeia evolutiva
   const resultados = showEvolves
     ? [
-      ...new Map(
-        pokemons
-          .map((pokemon) => {
-            const evolucao = evolvesList.find(
-              (linha) =>
-                linha.pokemon?.number === formatNumber(pokemon.id) ||
-                linha.evolve?.some(
-                  (ev) => ev.number === formatNumber(pokemon.id)
-                )
-            );
-            return evolucao ? [evolucao.pokemon.number, evolucao] : null;
-          })
-          .filter(Boolean)
-      ).values(),
-    ]
+        ...new Map(
+          pokemons
+            .map((pokemon) => {
+              const evolucao = evolvesList.find(
+                (linha) =>
+                  linha.pokemon?.number === formatNumber(pokemon.id) ||
+                  linha.evolve?.some(
+                    (ev) => ev.number === formatNumber(pokemon.id)
+                  )
+              );
+              return evolucao ? [evolucao.pokemon.number, evolucao] : null;
+            })
+            .filter(Boolean)
+        ).values(),
+      ]
     : pokemons;
 
   return (
@@ -242,15 +248,25 @@ function Pesquisa() {
                   hasEvolves
                   onClick={() => insert_fav(item.pokemon.number)}
                 >
-                  {[item.pokemon, ...(item.evolve || [])].map((poke) => (
-                    <div key={poke.number}>
-                      <PokemonImage
-                        src={`http://localhost:8000/home/${poke.number}/img`}
-                        alt={poke.name}
-                      />
-                      <p>{poke.name.toUpperCase()}</p>
-                    </div>
-                  ))}
+                  <EvolucaoRow>
+                    {[item.pokemon, ...(item.evolve || [])].map(
+                      (poke, index, arr) => (
+                        <div
+                          key={poke.number}
+                          style={{ display: "flex", alignItems: "center" }}
+                        >
+                          <div>
+                            <PokemonImage
+                              src={`http://localhost:8000/home/${poke.number}/img`}
+                              alt={poke.name}
+                            />
+                            <p>{poke.name.toUpperCase()}</p>
+                          </div>
+                          {index < arr.length - 1 && <Arrow>→</Arrow>}
+                        </div>
+                      )
+                    )}
+                  </EvolucaoRow>
                 </Resultado>
               );
             }

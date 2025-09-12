@@ -10,6 +10,8 @@ const FrameDef = styled.div`
 `
 
 const FramePokeEvoGrid = styled.div`
+  background-color: #ffffff3c;
+  border-radius: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -17,6 +19,12 @@ const FramePokeEvoGrid = styled.div`
   margin: 20px 0;
   margin-left: 10%;
 	margin-right: 10%;
+  background-color: #ffffff3c;
+  padding: 5px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 `;
 
 const EvolveCard = styled.div`
@@ -26,8 +34,7 @@ const EvolveCard = styled.div`
   border-radius: 20px;
   padding: 12px;
   background-color: #ffffff3c;
-  // border: 2px solid #000;
-    border: 1px solid #fff;
+  border: 1px solid #fff;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 `;
 
@@ -40,10 +47,6 @@ const PokeName = styled.p`
   color: #fff;
   text-align: center;
   margin: 4px 0;
-  // text-shadow: 2px 2px 0 #000,
-  //              -2px 2px 0 #000,
-  //              -2px -2px 0 #000,
-  //              2px -2px 0 #000;
 `;
 
 const EvoLine = styled.div`
