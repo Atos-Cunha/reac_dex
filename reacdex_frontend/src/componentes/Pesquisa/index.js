@@ -114,7 +114,6 @@ const EvolucaoRow = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  // width: 80%;
 `;
 
 const Arrow = styled.span`
@@ -180,8 +179,23 @@ function Pesquisa() {
   }, []);
 
   async function insert_fav(id) {
-    await post_fav(id);
-    alert(`Item de id:${id} inserido!`);
+    try {
+      // consulta a lista atual de favoritos
+      const res = await fetch("http://localhost:8000/fav");
+      if (!res.ok) throw new Error("Erro ao buscar favoritos");
+      const favs = await res.json();
+
+      if (favs.length >= 7) {
+        alert("Atingiu o limite, favor visitar a página de favoritos");
+        return;
+      }
+
+      await post_fav(id);
+      alert(`Item de id:${id} inserido!`);
+    } catch (err) {
+      console.error("Erro ao inserir favorito:", err.message);
+      alert("Falha ao adicionar aos favoritos.");
+    }
   }
 
   function handleSearch(evento) {
