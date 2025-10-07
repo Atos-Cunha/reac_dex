@@ -2,9 +2,7 @@
 
 ## 📦 Após clonar ou baixar o projeto
 
-Certifique-se de ter o **Node.js** instalado em sua máquina.
-
-Siga os passos abaixo para configurar e iniciar o ambiente de desenvolvimento.
+Certifique-se de ter o **Node.js** instalado em sua máquina antes de iniciar.
 
 ---
 
@@ -12,22 +10,20 @@ Siga os passos abaixo para configurar e iniciar o ambiente de desenvolvimento.
 
 ### 1. Iniciar o terminal
 
-Abra um terminal e acesse o diretório raiz do projeto.
+Abra o terminal no diretório raiz do projeto.
+
+---
 
 ### 2. Instalar as dependências
 
-No terminal, execute os seguintes comandos:
+Acesse as pastas do **frontend** e **backend** para instalar os módulos necessários:
 
 ```bash
-# Acesse a pasta do frontend e instale os módulos
-cd ./books_react
+cd ./reacdex_backend
 npm install
 
-# Volte para o diretório raiz
 cd ..
-
-# Acesse a pasta do servidor (backend) e instale os módulos
-cd ./books_server
+cd ./reacdex_frontend
 npm install
 ```
 ### 3. Iniciar o projeto
@@ -35,12 +31,12 @@ npm install
 
 # BackEnd
 ```bash
-cd ./books_server
+cd ./reacdex_backend
 node app.js
 ```
 # FrontEnd
 ```bash
-cd ./books_react/src
+cd ./reacdex_frontend/src
 npm start
 ```
 
