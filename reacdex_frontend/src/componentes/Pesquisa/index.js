@@ -240,15 +240,16 @@ function Pesquisa() {
       <FrameInput>
         <Input placeholder="Pesquise por nome" onChange={handleSearch} />
 
-        {/* 🔹 Checkbox que controla exibição de evoluções */}
-        <CheckboxContainer>
-          <InputCxBx
-            id="evolves"
-            checked={showEvolves}
-            onChange={(e) => setShowEvolves(e.target.checked)}
-          />
-          <label htmlFor="evolves">Evolves</label>
-        </CheckboxContainer>
+        {pokemons.length > 0 && (
+          <CheckboxContainer>
+            <InputCxBx
+              id="evolves"
+              checked={showEvolves}
+              onChange={(e) => setShowEvolves(e.target.checked)}
+            />
+            <label htmlFor="evolves">Evolves</label>
+          </CheckboxContainer>
+        )}
       </FrameInput>
 
       {resultados.length > 0 && (
@@ -299,7 +300,9 @@ function Pesquisa() {
                 onClick={() => insert_fav(item.id)}
               >
                 <PokemonImage
-                  src={`http://localhost:8000/home/${formatNumber(item.id)}/img`}
+                  src={`http://localhost:8000/home/${formatNumber(
+                    item.id
+                  )}/img`}
                   alt={item.name}
                 />
                 <p>{item.name.toUpperCase()}</p>

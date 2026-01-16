@@ -1,18 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import { createGlobalStyle } from 'styled-components';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
-import Header from './componentes/Header';
-import HeaderDark from './componentes/IconesHeaderDark';
-import Home from './routes/Home';
-import Evolves from './routes/Evolves';
-// import EvolvesDark from './routes/EvolvesDark';
-import Types from './routes/Types.js';
-import Fav from './routes/Fav';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { createGlobalStyle } from "styled-components";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Header from "./componentes/Header";
+import Home from "./routes/Home";
+import Evolves from "./routes/Evolves";
+import Types from "./routes/Types.js";
+import Fav from "./routes/Fav";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -40,17 +35,7 @@ const GlobalStyle = createGlobalStyle`
 const router = createBrowserRouter(
   [
     {
-      path: '/',
-      element: (
-        <>
-          <Header />
-          {/* <HeaderDark /> */}
-          <Home />
-        </>
-      ),
-    },
-    {
-      path: '/home',
+      path: "/",
       element: (
         <>
           <Header />
@@ -59,7 +44,16 @@ const router = createBrowserRouter(
       ),
     },
     {
-      path: '/Evolves',
+      path: "/home",
+      element: (
+        <>
+          <Header />
+          <Home />
+        </>
+      ),
+    },
+    {
+      path: "/Evolves",
       element: (
         <>
           <Header />
@@ -68,7 +62,7 @@ const router = createBrowserRouter(
       ),
     },
     {
-      path: '/Types',
+      path: "/Types",
       element: (
         <>
           <Header />
@@ -77,7 +71,7 @@ const router = createBrowserRouter(
       ),
     },
     {
-      path: '/fav',
+      path: "/fav",
       element: (
         <>
           <Header />
@@ -96,7 +90,7 @@ const router = createBrowserRouter(
   }
 );
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <GlobalStyle />
